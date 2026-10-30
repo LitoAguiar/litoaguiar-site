@@ -28,6 +28,24 @@ $fontes = [
   ],
 ];
 
+if (isset($_GET['diag']) && $_GET['diag'] === 'lito2026') {
+  $out = [];
+  foreach ($fontes as $id => $f) {
+    foreach (['feed', 'pagina'] as $k) {
+      $ch = curl_init($f[$k]);
+      curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_FOLLOWLOCATION => true, CURLOPT_TIMEOUT => 12, CURLOPT_ENCODING => '',
+        CURLOPT_USERAGENT => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36']);
+      $b = curl_exec($ch);
+      $out["$id.$k"] = ['status' => curl_getinfo($ch, CURLINFO_HTTP_CODE), 'final' => curl_getinfo($ch, CURLINFO_EFFECTIVE_URL), 'bytes' => strlen((string) $b),
+        'inicio' => substr(preg_replace('/\s+/', ' ', (string) $b), 0, 300),
+        'amostra' => preg_match_all('#<(article|h2|h3)[^>]*class="([^"]*)"#i', (string) $b, $m) ? array_slice(array_unique($m[2]), 0, 12) : []];
+      curl_close($ch);
+    }
+  }
+  echo json_encode($out, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+  exit;
+}
+
 $cache = is_file($cacheFile) ? json_decode((string) file_get_contents($cacheFile), true) : null;
 $forcar = isset($_GET['atualizar']);
 if (!$forcar && $cache && isset($cache['geradoEm']) && time() - $cache['geradoEm'] < TTL) {
