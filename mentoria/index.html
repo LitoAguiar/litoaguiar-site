@@ -119,7 +119,7 @@ Mentoria · Fundadores e diretores
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
 <article data-coluna="ndmais" style="background: #FFFFFF; border: 1px solid #DADCE4; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; min-width: 0">
-<div data-img style="aspect-ratio: 16 / 9; max-width: 100%; background: #EEF0F5; background-size: cover; background-position: center"></div>
+<div data-img style="aspect-ratio: 16 / 9; max-width: 100%; background-color: #21253A; background-image: url('img/bio-retrato.jpg'); background-size: cover; background-position: 50% 22%"></div>
 <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1">
 <img src="img/midia-ndmais.png" alt="ND+" loading="lazy" style="height: 40px; width: auto; max-width: 160px; object-fit: contain; object-position: left center; display: block">
 <span data-data style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #565B70">COLUNA</span>
@@ -128,7 +128,7 @@ Mentoria · Fundadores e diretores
 </div>
 </article>
 <article data-coluna="economiasc" style="background: #FFFFFF; border: 1px solid #DADCE4; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; min-width: 0">
-<div data-img style="aspect-ratio: 16 / 9; max-width: 100%; background: #EEF0F5; background-size: cover; background-position: center"></div>
+<div data-img style="aspect-ratio: 16 / 9; max-width: 100%; background-color: #21253A; background-image: url('img/bio-retrato.jpg'); background-size: cover; background-position: 50% 22%"></div>
 <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1">
 <img src="img/midia-economiasc.png" alt="Economia SC" loading="lazy" style="height: 40px; width: auto; max-width: 160px; object-fit: contain; object-position: left center; display: block">
 <span data-data style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #565B70">COLUNA</span>
@@ -137,7 +137,7 @@ Mentoria · Fundadores e diretores
 </div>
 </article>
 <article data-coluna="acontecendoaqui" style="background: #FFFFFF; border: 1px solid #DADCE4; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; min-width: 0">
-<div data-img style="aspect-ratio: 16 / 9; max-width: 100%; background: #EEF0F5; background-size: cover; background-position: center"></div>
+<div data-img style="aspect-ratio: 16 / 9; max-width: 100%; background-color: #21253A; background-image: url('img/bio-retrato.jpg'); background-size: cover; background-position: 50% 22%"></div>
 <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1">
 <img src="img/midia-acontecendoaqui.png" alt="Acontecendo Aqui" loading="lazy" style="height: 26px; width: auto; max-width: 160px; object-fit: contain; object-position: left center; display: block">
 <span data-data style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #565B70">COLUNA</span>
@@ -390,7 +390,7 @@ Mentoria · Fundadores e diretores
       if(/^https:\/\//.test(a.link)){ t.href=a.link; l.href=a.link; }
       if(a.titulo) t.textContent=a.titulo;
       dt.textContent=fmt(a.data);
-      if(a.imagem && /^https:\/\//.test(a.imagem)) im.style.backgroundImage='url("'+a.imagem.replace(/"/g,'%22')+'")';
+      if(a.imagem && /^https:\/\//.test(a.imagem)) { im.style.backgroundImage='url("'+a.imagem.replace(/"/g,'%22')+'")'; im.style.backgroundPosition='center'; }
     });
   }).catch(function(){});
 })();
