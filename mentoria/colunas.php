@@ -20,6 +20,7 @@ $fontes = [
     'veiculo' => 'Economia SC',
     'pagina'  => 'https://economiasc.com/author/litoaguiar/',
     'feed'    => 'https://economiasc.com/author/litoaguiar/feed/',
+    'api'     => 'https://economiasc.com/wp-json/wp/v2/posts?author=172&per_page=1&_embed=wp:featuredmedia',
   ],
   'acontecendoaqui' => [
     'veiculo' => 'Acontecendo Aqui',
@@ -27,24 +28,6 @@ $fontes = [
     'feed'    => 'https://acontecendoaqui.com.br/colunista/lito-aguiar/feed/',
   ],
 ];
-
-if (isset($_GET['diag']) && $_GET['diag'] === 'lito2026') {
-  $out = [];
-  foreach ($fontes as $id => $f) {
-    foreach (['feed', 'pagina'] as $k) {
-      $ch = curl_init($f[$k]);
-      curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_FOLLOWLOCATION => true, CURLOPT_TIMEOUT => 12, CURLOPT_ENCODING => '',
-        CURLOPT_USERAGENT => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36']);
-      $b = curl_exec($ch);
-      $out["$id.$k"] = ['status' => curl_getinfo($ch, CURLINFO_HTTP_CODE), 'final' => curl_getinfo($ch, CURLINFO_EFFECTIVE_URL), 'bytes' => strlen((string) $b),
-        'inicio' => substr(preg_replace('/\s+/', ' ', (string) $b), 0, 300),
-        'amostra' => preg_match_all('#<(article|h2|h3)[^>]*class="([^"]*)"#i', (string) $b, $m) ? array_slice(array_unique($m[2]), 0, 12) : []];
-      curl_close($ch);
-    }
-  }
-  echo json_encode($out, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
-  exit;
-}
 
 $cache = is_file($cacheFile) ? json_decode((string) file_get_contents($cacheFile), true) : null;
 $forcar = isset($_GET['atualizar']);
@@ -99,6 +82,20 @@ function doFeed(string $xml): ?array {
   ];
 }
 
+function daApi(string $json): ?array {
+  $d = json_decode($json, true);
+  if (!is_array($d) || !isset($d[0]['link'])) return null;
+  $p = $d[0];
+  $img = $p['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['medium_large']['source_url']
+      ?? $p['_embedded']['wp:featuredmedia'][0]['source_url'] ?? null;
+  return [
+    'titulo' => limpar($p['title']['rendered'] ?? ''),
+    'link'   => $p['link'],
+    'data'   => isset($p['date']) ? substr($p['date'], 0, 10) : null,
+    'imagem' => $img,
+  ];
+}
+
 function daPagina(string $html, string $base): ?array {
   libxml_use_internal_errors(true);
   $doc = new DOMDocument();
@@ -137,7 +134,11 @@ function daPagina(string $html, string $base): ?array {
 $saida = ['geradoEm' => time(), 'colunas' => []];
 foreach ($fontes as $id => $f) {
   $art = null;
-  $xml = baixar($f['feed']);
+  if (!empty($f['api'])) {
+    $json = baixar($f['api']);
+    if ($json) $art = daApi($json);
+  }
+  $xml = $art ? null : baixar($f['feed']);
   if ($xml && stripos(ltrim($xml), '<?xml') === 0) $art = doFeed($xml);
   if (!$art) {
     $html = baixar($f['pagina']);
