@@ -25,6 +25,16 @@ input,select,textarea{font:inherit}
 @keyframes lp-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.lp-track{animation:none}.lp-strip{overflow-x:auto}}
 @media (max-width: 640px){.lp-tag{display:none}}
+.lp-fade{aspect-ratio:4/5}
+.lp-fade img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;animation:lp-fade 25s infinite}
+.lp-fade img:nth-child(1){opacity:1;animation-delay:0s}
+.lp-fade img:nth-child(2){animation-delay:5s}
+.lp-fade img:nth-child(3){animation-delay:10s}
+.lp-fade img:nth-child(4){animation-delay:15s}
+.lp-fade img:nth-child(5){animation-delay:20s}
+@keyframes lp-fade{0%{opacity:1}18%{opacity:1}22%{opacity:0}96%{opacity:0}100%{opacity:1}}
+@media (prefers-reduced-motion: reduce){.lp-fade img{animation:none}}
+@media (max-width: 900px){.lp-fade{position:relative!important;top:auto!important;max-width:100%!important}}
 </style>
 <style>html{scroll-behavior:smooth}</style>
 </head>
@@ -169,7 +179,8 @@ Mentoria · Fundadores e diretores
 <img loading="lazy" decoding="async" src="img/origem-dois-podcasts-v3.jpg" alt="Lito Aguiar apresentando os podcasts No Fim do Dia, do ND+, e Pantech, da Jovem Pan" style="width: 100%; max-width: 100%; aspect-ratio: 1600 / 748; object-fit: cover; border-radius: 8px; display: block">
 <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #565B70"><span>HOJE · NO FIM DO DIA · ND+ / GRUPO ND</span><span>2 ANOS · PANTECH · JOVEM PAN</span></div>
 </div>
-<div style="display: flex; flex-direction: column; gap: 22px; max-width: 760px">
+<div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
+<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px; max-width: 760px">
 <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #565B70">A origem</span>
 <h2 style="margin: 0; font-family: 'Saira', 'Archivo', sans-serif; font-stretch: 87%; font-weight: 700; font-size: clamp(36px, 4vw, 52px); line-height: 1.02; text-wrap: balance">A frase que mudou o jogo</h2>
 <p style="margin: 0">Há três anos, gravei meu primeiro podcast com um sofá debaixo de uma árvore, no fundo de quintal. Não aconteceu nada.</p>
@@ -181,6 +192,14 @@ Mentoria · Fundadores e diretores
 </blockquote>
 <p style="margin: 0">Doeu. E ela tinha razão.</p>
 <p style="margin: 0">Juntei 28 anos de marketing e vendas e transformei o podcast numa máquina de vendas: quem senta na cadeira para gravar é recebido, lido e conduzido até o contrato. Hoje apresento o No Fim do Dia, no portal ND+ do Grupo ND, afiliado à Record em Santa Catarina. O método é o mesmo.</p>
+</div>
+<div class="lp-fade" style="flex: 1 1 340px; min-width: 0; max-width: 460px; position: sticky; top: 24px; border-radius: 8px; overflow: hidden; background: #21253A">
+<img src="img/g1-nfd-estudio.jpg" alt="Lito gravando o podcast No Fim do Dia" loading="lazy" decoding="async">
+<img src="img/g2-pantech-estudio.jpg" alt="Lito no estúdio do Pantech, da Jovem Pan" loading="lazy" decoding="async">
+<img src="img/g3-pantech-palco.jpg" alt="Lito no palco do Pantech Summit" loading="lazy" decoding="async">
+<img src="img/g4-conversas-patio.jpg" alt="Gravação do Conversas de Pátio" loading="lazy" decoding="async">
+<img src="img/g5-onair.jpg" alt="Lito gravando em estúdio On Air" loading="lazy" decoding="async">
+</div>
 </div>
 </div>
 </section>
