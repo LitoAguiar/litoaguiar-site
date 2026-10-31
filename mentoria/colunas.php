@@ -31,7 +31,8 @@ $fontes = [
 
 $cache = is_file($cacheFile) ? json_decode((string) file_get_contents($cacheFile), true) : null;
 $forcar = isset($_GET['atualizar']);
-if (!$forcar && $cache && isset($cache['geradoEm']) && time() - $cache['geradoEm'] < TTL) {
+$manualMtime = is_file(__DIR__ . '/colunas-manual.json') ? filemtime(__DIR__ . '/colunas-manual.json') : 0;
+if (!$forcar && $cache && isset($cache['geradoEm']) && time() - $cache['geradoEm'] < TTL && $manualMtime < $cache['geradoEm']) {
   echo json_encode($cache, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
   exit;
 }
@@ -131,6 +132,9 @@ function daPagina(string $html, string $base): ?array {
   return null;
 }
 
+// Atualização manual (portais que bloqueiam acesso automático): mentoria/colunas-manual.json
+$manual = is_file(__DIR__ . '/colunas-manual.json') ? (json_decode((string) file_get_contents(__DIR__ . '/colunas-manual.json'), true) ?: []) : [];
+
 $saida = ['geradoEm' => time(), 'colunas' => []];
 foreach ($fontes as $id => $f) {
   $art = null;
@@ -144,6 +148,7 @@ foreach ($fontes as $id => $f) {
     $html = baixar($f['pagina']);
     if ($html) $art = daPagina($html, $f['pagina']);
   }
+  if (!$art && isset($manual[$id]['link'])) $art = $manual[$id];
   if (!$art && isset($cache['colunas'][$id]['artigo'])) $art = $cache['colunas'][$id]['artigo'];
   $saida['colunas'][$id] = ['veiculo' => $f['veiculo'], 'pagina' => $f['pagina'], 'artigo' => $art];
 }
