@@ -65,7 +65,7 @@ function crm_abrir_oportunidade(array $lead, bool $teste = false): array {
     'deal' => [
       'name'          => mb_substr($nome, 0, 120),
       'deal_stage_id' => $c['stage_id'],
-      'rating'        => $lead['no_perfil'] ? 3 : 1,
+      'rating'        => $lead['no_perfil'] ? 5 : 1,
     ],
     'contacts' => [[
       'name'        => $lead['nome'],
