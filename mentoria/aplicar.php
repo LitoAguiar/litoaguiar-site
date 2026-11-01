@@ -8,6 +8,7 @@
  */
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
+require __DIR__ . '/crm.php';
 
 const AVISO_PARA = 'lito@litoaguiar.com.br';
 const REMETENTE  = 'site@litoaguiar.com.br';
@@ -66,18 +67,23 @@ if ($fh = @fopen($csv, 'a')) {
   fclose($fh);
 }
 
-// 2) aviso por e-mail
+// 2) oportunidade no RD Station CRM
+$crm = crm_abrir_oportunidade($lead + ['faturamento_rotulo' => $rotulos[$lead['faturamento']], 'no_perfil' => $noPerfil]);
+if (!$crm['ok']) @file_put_contents($pasta . '/crm-erros.log', $quando . ' ' . ($crm['erro'] ?? '') . "\n", FILE_APPEND);
+
+// 3) aviso por e-mail
 $assunto = ($noPerfil ? '[NO PERFIL] ' : '[FORA DO PERFIL] ') . 'Nova aplicação · Fluxo de Autoridade · ' . $lead['nome'];
 $corpo = "Nova aplicação para a mentoria Fluxo de Autoridade\n\n"
   . "Nome: {$lead['nome']}\nEmpresa: {$lead['empresa']}\nCargo: {$lead['cargo']}\n"
   . "Faturamento anual: {$rotulos[$lead['faturamento']]}" . ($noPerfil ? '' : ' (abaixo do perfil)') . "\n"
   . "WhatsApp: {$lead['whatsapp']}\nE-mail: {$lead['email']}\n\n"
   . "O que quer que a autoridade gere em 6 meses:\n" . ($lead['objetivo'] ?: '(não respondeu)') . "\n\n"
-  . "Recebido em: $quando\n";
+  . "Recebido em: $quando\n"
+  . ($crm['ok'] ? "Oportunidade aberta no RD Station CRM (funil Mentoria Fluxo de Autoridade).\n" : "ATENÇÃO: não entrou no CRM (" . ($crm['erro'] ?? '') . "). Cadastre manualmente.\n");
 $cab = "From: Site Lito Aguiar <" . REMETENTE . ">\r\nReply-To: {$lead['email']}\r\nContent-Type: text/plain; charset=UTF-8\r\n";
 $enviado = @mail(AVISO_PARA, '=?UTF-8?B?' . base64_encode($assunto) . '?=', $corpo, $cab, '-f' . REMETENTE);
 
-// 3) RD Station (opcional)
+// 4) RD Station Marketing (opcional)
 if (RD_TOKEN !== '' && function_exists('curl_init')) {
   $ch = curl_init('https://api.rd.services/platform/conversions?api_key=' . urlencode(RD_TOKEN));
   curl_setopt_array($ch, [
@@ -96,4 +102,4 @@ if (RD_TOKEN !== '' && function_exists('curl_init')) {
   curl_close($ch);
 }
 
-responder(200, ['ok' => true, 'noPerfil' => $noPerfil, 'avisado' => (bool) $enviado]);
+responder(200, ['ok' => true, 'noPerfil' => $noPerfil, 'avisado' => (bool) $enviado, 'crm' => $crm['ok']]);
