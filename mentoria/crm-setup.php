@@ -23,6 +23,26 @@ const ETAPAS = [
 
 function sair(int $s, array $d): void { http_response_code($s); echo json_encode($d, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT); exit; }
 
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+  header('Content-Type: text/html; charset=utf-8');
+  header('X-Robots-Tag: noindex');
+  ?><!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Conectar CRM</title>
+<style>body{font:16px/1.5 system-ui,sans-serif;background:#F4F5F8;color:#21253A;margin:0;padding:40px 20px}main{max-width:560px;margin:auto;background:#fff;border-radius:12px;padding:32px;display:flex;flex-direction:column;gap:16px}label{font-weight:700;font-size:14px;display:flex;flex-direction:column;gap:6px}input{font:inherit;padding:12px;border:1px solid #B8BCC9;border-radius:6px}button{font:700 16px system-ui;min-height:48px;border:0;border-radius:6px;background:#E9A23B;color:#161A2B;cursor:pointer}button.sec{background:#21253A;color:#fff}pre{background:#161A2B;color:#CDD1DE;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:13px;min-height:40px}</style></head>
+<body><main><h1 style="margin:0">Conectar o formulário ao RD Station CRM</h1>
+<p style="margin:0">Cria o funil <b>Mentoria Fluxo de Autoridade</b>, as etapas e a fonte, e liga o formulário da LP a ele.</p>
+<label>Chave de configuração (enviada no chat)<input id="k" autocomplete="off"></label>
+<label>Token do RD Station CRM<input id="t" autocomplete="off"></label>
+<button id="go">Conectar e criar funil</button>
+<button id="te" class="sec">Enviar oportunidade de teste</button>
+<pre id="o">Aguardando…</pre></main>
+<script>
+const o=document.getElementById('o');
+async function call(d){o.textContent='Processando…';try{const r=await fetch(location.pathname,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});o.textContent=await r.text();}catch(e){o.textContent='Erro de conexão: '+e;}}
+go.onclick=()=>call({chave:k.value.trim(),acao:'configurar',token:t.value.trim()});
+te.onclick=()=>call({chave:k.value.trim(),acao:'testar'});
+</script></body></html><?php
+  exit;
+}
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') sair(405, ['ok' => false]);
 $in = json_decode((string) file_get_contents('php://input'), true) ?: [];
 if (!hash_equals(SETUP_HASH, hash('sha256', (string) ($in['chave'] ?? '')))) { usleep(800000); sair(403, ['ok' => false, 'erro' => 'chave inválida']); }
