@@ -55,11 +55,6 @@ function crm_abrir_oportunidade(array $lead, bool $teste = false): array {
   if (!$c || empty($c['stage_id'])) return ['ok' => false, 'erro' => 'CRM não configurado'];
   $t = $c['token'];
 
-  // empresa
-  $orgId = null;
-  [$st, $org] = crm_req($t, 'POST', '/organizations', ['organization' => ['name' => $lead['empresa']]]);
-  if ($st >= 200 && $st < 300) $orgId = $org['_id'] ?? $org['id'] ?? null;
-
   $nome = ($teste ? '[TESTE] ' : '') . $lead['empresa'] . ' · ' . $lead['nome'];
   $deal = [
     'deal' => [
@@ -81,7 +76,7 @@ function crm_abrir_oportunidade(array $lead, bool $teste = false): array {
   ];
   if (!empty($c['user_id'])) $deal['deal']['user_id'] = $c['user_id'];
   if (!empty($c['source_id'])) $deal['deal_source'] = ['_id' => $c['source_id']];
-  if ($orgId) { $deal['organization'] = ['_id' => $orgId]; $deal['deal']['organization_id'] = $orgId; }
+  $deal['organization'] = ['name' => $lead['empresa']];
 
   [$st, $res] = crm_req($t, 'POST', '/deals', $deal);
   if ($st < 200 || $st >= 300) {
@@ -91,11 +86,6 @@ function crm_abrir_oportunidade(array $lead, bool $teste = false): array {
   }
   if ($st < 200 || $st >= 300) return ['ok' => false, 'erro' => 'HTTP ' . $st . ' ' . substr(json_encode($res, JSON_UNESCAPED_UNICODE), 0, 300)];
   $dealId = $res['_id'] ?? $res['id'] ?? null;
-  // garante o vínculo com a empresa
-  if ($dealId && $orgId) {
-    crm_req($t, 'PUT', '/deals/' . $dealId, ['deal' => ['organization_id' => $orgId]]);
-  }
-
   // anotação com os detalhes da aplicação
   if ($dealId) {
     $txt = "Aplicação pela LP da mentoria (litoaguiar.com.br/mentoria)\n"
