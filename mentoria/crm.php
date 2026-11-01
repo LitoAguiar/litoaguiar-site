@@ -65,7 +65,7 @@ function crm_abrir_oportunidade(array $lead, bool $teste = false): array {
     'deal' => [
       'name'          => mb_substr($nome, 0, 120),
       'deal_stage_id' => $c['stage_id'],
-      'rating'        => $lead['no_perfil'] ? 5 : 1,
+      'rating'        => $lead['no_perfil'] ? 4 : 1,
     ],
     'contacts' => [[
       'name'        => $lead['nome'],
@@ -92,7 +92,7 @@ function crm_abrir_oportunidade(array $lead, bool $teste = false): array {
   if ($st < 200 || $st >= 300) return ['ok' => false, 'erro' => 'HTTP ' . $st . ' ' . substr(json_encode($res, JSON_UNESCAPED_UNICODE), 0, 300)];
   $dealId = $res['_id'] ?? $res['id'] ?? null;
   // garante o vínculo com a empresa
-  if ($dealId && $orgId && empty($res['organization'])) {
+  if ($dealId && $orgId) {
     crm_req($t, 'PUT', '/deals/' . $dealId, ['deal' => ['organization_id' => $orgId]]);
   }
 
