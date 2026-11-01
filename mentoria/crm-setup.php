@@ -58,10 +58,11 @@ if ($acao === 'diag') {
   $c = crm_config(); $t = $c['token']; $d = (string) ($in['deal'] ?? '');
   $o = crm_req($t, 'POST', '/organizations', ['organization' => ['name' => 'Empresa Teste']]);
   $oid = $o[1]['_id'] ?? null;
+  sleep(4);
   $p1 = crm_req($t, 'PUT', '/deals/' . $d, ['deal' => ['organization_id' => $oid]]);
-  $p2 = crm_req($t, 'PUT', '/deals/' . $d, ['organization' => ['_id' => $oid]]);
+  $p2 = crm_req($t, 'POST', '/deals', ['deal' => ['name' => '[TESTE] org por nome', 'deal_stage_id' => $c['stage_id']], 'organization' => ['name' => 'Empresa Teste Nome']]);
   $g = crm_req($t, 'GET', '/deals/' . $d);
-  sair(200, ['p1' => [$p1[0], $p1[1]['organization'] ?? $p1[1]], 'p2' => [$p2[0], $p2[1]['organization'] ?? $p2[1]], 'get_org' => $g[1]['organization'] ?? null]);
+  sair(200, ['p1' => [$p1[0], $p1[1]['organization'] ?? $p1[1]], 'p2' => [$p2[0], $p2[1]['organization'] ?? $p2[1]], 'get_org' => $g[1]['organization'] ?? null, 'oid' => $oid, 'org_resp' => $o[0]]);
 }
 
 if ($acao === 'testar') {
