@@ -58,7 +58,8 @@ a{color:inherit}
 .btn:active{transform:translateY(1px)}
 .btn svg{width:18px;height:18px;transition:transform .2s}
 .btn:hover svg{transform:translateX(3px)}
-.btn-sm{min-height:44px;padding:0 18px;font-size:15px}
+.btn-sm{min-height:44px;padding:0 18px;font-size:15px;white-space:nowrap}
+@media (max-width:420px){.xs-hide{display:none}}
 .cta-note{font-size:14px;color:var(--muted)}
 .dark .cta-note,.ink .cta-note,.hero .cta-note,.close .cta-note{color:var(--muted-d)}
 
@@ -76,7 +77,7 @@ a{color:inherit}
 .hero-img img{width:100%;height:100%;object-fit:cover;object-position:46% 30%}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--ink) 0%,var(--ink) 34%,rgba(22,26,43,.7) 46%,rgba(22,26,43,.1) 70%,rgba(22,26,43,0) 100%),linear-gradient(0deg,var(--ink) 0%,rgba(22,26,43,0) 32%)}
 .hero .wrap{min-height:min(92vh,880px);display:flex;flex-direction:column;justify-content:center;gap:30px;padding-block:clamp(56px,9vw,120px) clamp(48px,6vw,88px)}
-.hero .h-xl{max-width:9.5em}
+.hero .h-xl{max-width:7.6em}
 .hero .h-xl .hl{display:block}
 .hero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px}
 .rec{position:absolute;right:max(var(--pad-x), env(safe-area-inset-right,0px));bottom:28px;display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:#F4F5F8;background:rgba(22,26,43,.8);padding:9px 14px;border-radius:4px;border:1px solid var(--line-d)}
@@ -282,7 +283,7 @@ html.paused .track,html.paused .fade img,html.paused .rec i{animation-play-state
       <img src="img/logo-lito-aguiar.png" alt="Lito Aguiar" width="148" height="30">
       <span class="tag">Mentoria Fluxo de Autoridade</span>
     </div>
-    <a class="btn btn-sm" href="#agendar">Agendar minha conversa</a>
+    <a class="btn btn-sm" href="#agendar">Agendar <span class="xs-hide">minha&nbsp;</span>conversa</a>
   </div>
 </header>
 
