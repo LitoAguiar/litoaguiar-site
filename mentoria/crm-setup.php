@@ -54,6 +54,16 @@ if ($acao === 'status') {
   sair(200, ['ok' => true, 'configurado' => (bool) $c, 'funil' => $c['pipeline_id'] ?? null, 'etapa' => $c['stage_id'] ?? null, 'arquivo_fora_do_site' => crm_config_path()]);
 }
 
+if ($acao === 'diag') {
+  $c = crm_config(); $t = $c['token']; $d = (string) ($in['deal'] ?? '');
+  $o = crm_req($t, 'POST', '/organizations', ['organization' => ['name' => 'Empresa Teste']]);
+  $oid = $o[1]['_id'] ?? null;
+  $p1 = crm_req($t, 'PUT', '/deals/' . $d, ['deal' => ['organization_id' => $oid]]);
+  $p2 = crm_req($t, 'PUT', '/deals/' . $d, ['organization' => ['_id' => $oid]]);
+  $g = crm_req($t, 'GET', '/deals/' . $d);
+  sair(200, ['p1' => [$p1[0], $p1[1]['organization'] ?? $p1[1]], 'p2' => [$p2[0], $p2[1]['organization'] ?? $p2[1]], 'get_org' => $g[1]['organization'] ?? null]);
+}
+
 if ($acao === 'testar') {
   $r = crm_abrir_oportunidade([
     'nome' => 'Teste Integração', 'email' => 'lito@litoaguiar.com.br', 'whatsapp' => '(48) 99999-0000',
