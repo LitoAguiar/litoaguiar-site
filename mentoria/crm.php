@@ -81,7 +81,7 @@ function crm_abrir_oportunidade(array $lead, bool $teste = false): array {
   ];
   if (!empty($c['user_id'])) $deal['deal']['user_id'] = $c['user_id'];
   if (!empty($c['source_id'])) $deal['deal_source'] = ['_id' => $c['source_id']];
-  if ($orgId) $deal['organization'] = ['_id' => $orgId];
+  if ($orgId) { $deal['organization'] = ['_id' => $orgId]; $deal['deal']['organization_id'] = $orgId; }
 
   [$st, $res] = crm_req($t, 'POST', '/deals', $deal);
   if ($st < 200 || $st >= 300) {
@@ -91,6 +91,10 @@ function crm_abrir_oportunidade(array $lead, bool $teste = false): array {
   }
   if ($st < 200 || $st >= 300) return ['ok' => false, 'erro' => 'HTTP ' . $st . ' ' . substr(json_encode($res, JSON_UNESCAPED_UNICODE), 0, 300)];
   $dealId = $res['_id'] ?? $res['id'] ?? null;
+  // garante o vínculo com a empresa
+  if ($dealId && $orgId && empty($res['organization'])) {
+    crm_req($t, 'PUT', '/deals/' . $dealId, ['deal' => ['organization_id' => $orgId]]);
+  }
 
   // anotação com os detalhes da aplicação
   if ($dealId) {
