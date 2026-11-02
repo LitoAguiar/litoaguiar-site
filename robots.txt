@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /mentoria/*.php
+Disallow: /mentoria/dados/
+Disallow: /mentoria/b.html
+
+Sitemap: https://litoaguiar.com.br/sitemap.xml
