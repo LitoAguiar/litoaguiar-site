@@ -41,7 +41,7 @@ if ($xml && preg_match_all('#<entry>(.*?)</entry>#s', $xml, $m)) {
       'convidado' => trim($partes[1] ?? ''),
       'data' => substr($p[1] ?? '', 0, 10),
       'url' => 'https://www.youtube.com/watch?v=' . $id[1],
-      'thumb' => 'https://i.ytimg.com/vi/' . $id[1] . '/hqdefault.jpg',
+      'thumb' => 'https://i.ytimg.com/vi/' . $id[1] . '/maxresdefault.jpg',
     ];
     if (count($eps) >= QTD) break;
   }

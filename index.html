@@ -109,8 +109,9 @@ a{color:inherit}
 
 /* No Fim do Dia */
 .nfd{--nfd:#F7C843;--nfd-2:#EBA63C;background:linear-gradient(135deg,var(--nfd) 0%,#F3BD3F 55%,var(--nfd-2) 100%);color:#111;padding-block:clamp(56px,8vw,104px)}
-.nfd-head{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,56px);align-items:center;margin-bottom:clamp(28px,4vw,44px)}
-.nfd-head img{width:100%;border-radius:10px;box-shadow:0 18px 40px rgba(70,40,0,.25)}
+.nfd-head{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);align-items:center;margin-bottom:clamp(28px,4vw,44px)}
+.nfd-logo{margin:18px 0 14px;max-width:460px}.nfd-logo img{width:100%;height:auto}
+.nfd-art{margin:0;justify-self:end;max-width:460px;width:100%}.nfd-art img{width:100%;height:auto;border-radius:12px;box-shadow:0 24px 50px rgba(60,30,0,.35)}
 .nfd .tag{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;color:#111}
 .nfd .tag::before{content:"";width:9px;height:9px;border-radius:50%;background:#E5312B;box-shadow:0 0 0 4px rgba(229,49,43,.2)}
 .nfd-title{font-family:'Montserrat','Archivo Black','Arial Black',sans-serif;font-weight:900;font-size:clamp(52px,7vw,96px);line-height:.88;letter-spacing:-.03em;text-transform:uppercase;margin:16px 0 14px;color:#111}
@@ -157,6 +158,24 @@ a{color:inherit}
   .sform{grid-template-columns:1fr}
 }
 
+/* empresas */
+.emp .eyebrow{color:var(--signal)}
+.emp{background:var(--ink);color:#fff;padding-block:clamp(64px,9vw,112px)}
+.emp .h{font-size:clamp(40px,5vw,68px);margin:14px 0 12px}
+.emp .lead{color:var(--soft-d);max-width:36em;margin:0 0 36px}
+.emp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.co{display:flex;flex-direction:column;gap:14px;padding:26px 22px;border:1px solid var(--line-d);border-radius:10px;text-decoration:none;color:inherit;background:rgba(255,255,255,.03);transition:border-color .2s,transform .2s,background .2s}
+.co:hover{border-color:var(--signal);transform:translateY(-3px);background:rgba(255,255,255,.06)}
+.co .lg{height:56px;display:flex;align-items:center}
+.co .lg img{max-height:44px;max-width:180px;width:auto;height:auto}
+.co .wm{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:34px;line-height:.9;text-transform:uppercase;letter-spacing:.01em}
+.co .wm small{display:block;font-size:15px;letter-spacing:.32em;font-weight:600;color:var(--soft-d)}
+.co p{margin:0;font-size:15px;line-height:1.5;color:var(--soft-d)}
+.co .k{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal)}
+.co .go{margin-top:auto;font-weight:700;font-size:14px}
+@media (max-width:1000px){.emp-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.emp-grid{grid-template-columns:1fr}}
+
 /* rodapé */
 footer{background:var(--ink);color:var(--muted-d);padding-block:36px;font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:16px 28px;justify-content:space-between;align-items:center}
@@ -184,7 +203,7 @@ footer a:hover{color:var(--signal)}
   <div class="wrap">
     <div class="nav">
       <a href="/" aria-label="Lito Aguiar, página inicial"><img src="/mentoria/img/logo-lito-aguiar.png" alt="Lito Aguiar" width="148" height="30"></a>
-      <span style="display:flex;gap:20px"><a class="link" href="#no-fim-do-dia">No Fim do Dia</a><a class="link" href="/news/">Newsletter</a></span>
+      <span style="display:flex;gap:20px"><a class="link" href="#no-fim-do-dia">No Fim do Dia</a><a class="link" href="#empresas">Empresas</a><a class="link" href="/news/">Newsletter</a></span>
     </div>
     <div class="hero">
       <div>
@@ -231,26 +250,60 @@ footer a:hover{color:var(--signal)}
   <div class="wrap">
     <div class="nfd-head">
       <div>
-        <span class="tag">Podcast · ND+ / Grupo ND</span>
-        <h2 class="nfd-title" id="nfd-t">No fim<br>do dia</h2>
-        <p>Negócios e tecnologia com quem decide em Santa Catarina e no Brasil. Apresentado por mim, no portal ND+, do Grupo ND, afiliado à Record.</p>
+        <span class="tag">Podcast · ND+ / Grupo ND · Record</span>
+        <h2 class="nfd-logo" id="nfd-t"><img src="/img/nfd-logo.png" alt="No Fim do Dia: podcast, negócios e tecnologia" width="800" height="516"></h2>
+        <p>Negócios e tecnologia com quem decide em Santa Catarina e no Brasil. Criado e apresentado por mim no portal ND+, do Grupo ND, afiliado à Record.</p>
         <a class="btn" href="https://www.youtube.com/@NoFimDoDia.oficial?sub_confirmation=1" target="_blank" rel="noopener">Inscrever-se no canal <span aria-hidden="true">→</span></a>
       </div>
-      <a href="https://ndmais.com.br/projetos-especiais/no-fim-do-dia/" target="_blank" rel="noopener"><img src="/img/nfd-banner.jpg" alt="No Fim do Dia: podcast de negócios e tecnologia com Lito Aguiar" width="614" height="338" loading="lazy"></a>
+      <figure class="nfd-art"><img src="/img/nfd-lito.jpg" alt="Lito Aguiar, apresentador do No Fim do Dia" width="1000" height="1100" loading="lazy"></figure>
     </div>
     <span class="tag" style="margin-bottom:16px">Últimos episódios</span>
     <div class="eps" id="nfd-eps" style="margin-top:16px">
       <a class="ep" href="https://www.youtube.com/watch?v=u9GU8H3IfYA" target="_blank" rel="noopener">
-        <div class="th"><img src="https://i.ytimg.com/vi/u9GU8H3IfYA/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"></div>
+        <div class="th"><img src="https://i.ytimg.com/vi/u9GU8H3IfYA/maxresdefault.jpg" onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/u9GU8H3IfYA/mqdefault.jpg\'" alt="" loading="lazy" width="480" height="270"></div>
         <div class="in"><span class="d">16.10.2026</span><h3>FIM DA EDUCAÇÃO TRADICIONAL? A PIB cria Empreendedores MILIONÁRIOS aos 18 anos</h3><span class="g">Mohamad (PIB)</span></div>
       </a>
       <a class="ep" href="https://www.youtube.com/watch?v=dTyfHdxoxI4" target="_blank" rel="noopener">
-        <div class="th"><img src="https://i.ytimg.com/vi/dTyfHdxoxI4/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"></div>
+        <div class="th"><img src="https://i.ytimg.com/vi/dTyfHdxoxI4/maxresdefault.jpg" onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/dTyfHdxoxI4/mqdefault.jpg\'" alt="" loading="lazy" width="480" height="270"></div>
         <div class="in"><span class="d">08.10.2026</span><h3>Como um bônus de R$400 salvou essa empresa e a levou para o mundo</h3><span class="g">Diego (ASAAS) &amp; Tyara (Molde.me)</span></div>
       </a>
       <a class="ep" href="https://www.youtube.com/watch?v=GI5kQi1WTf8" target="_blank" rel="noopener">
-        <div class="th"><img src="https://i.ytimg.com/vi/GI5kQi1WTf8/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"></div>
+        <div class="th"><img src="https://i.ytimg.com/vi/GI5kQi1WTf8/maxresdefault.jpg" onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/GI5kQi1WTf8/mqdefault.jpg\'" alt="" loading="lazy" width="480" height="270"></div>
         <div class="in"><span class="d">16.09.2026</span><h3>A IA está te deixando PIOR (e mais rápido): O Futuro das Vendas</h3><span class="g">Theo Orosco</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="emp" id="empresas" aria-labelledby="emp-t">
+  <div class="wrap">
+    <span class="eyebrow">Empresas</span>
+    <h2 class="h" id="emp-t">Onde o método roda <span class="hl">todo dia.</span></h2>
+    <p class="lead">O que eu ensino na mentoria e defendo no podcast é o que aplico nas minhas empresas, em dados, marketing, tecnologia, esporte e entretenimento.</p>
+    <div class="emp-grid">
+      <a class="co" href="https://hublue.com.br" target="_blank" rel="noopener">
+        <div class="lg"><img src="https://hublue.com.br/wp-content/uploads/2024/01/Logo-Hublue-Final-RGB-branco.png" alt="Hublue" loading="lazy"></div>
+        <span class="k">Dados · marketing · vendas</span>
+        <p>Hub de inteligência em dados, marketing e vendas que conecta estratégia, pessoas e oportunidades de negócio.</p>
+        <span class="go">hublue.com.br →</span>
+      </a>
+      <a class="co" href="https://framebusiness.com.br" target="_blank" rel="noopener">
+        <div class="lg"><span class="wm">Frame<small>Business</small></span></div>
+        <span class="k">Marketing digital</span>
+        <p>Agência de marketing digital focada em performance: mídia, conteúdo e tecnologia a serviço de resultado comercial.</p>
+        <span class="go">framebusiness.com.br →</span>
+      </a>
+      <a class="co" href="https://axonictec.com.br" target="_blank" rel="noopener">
+        <div class="lg"><img src="/img/empresas/axonic.svg" alt="Axonic" loading="lazy" style="max-height:34px"></div>
+        <span class="k">Inteligência artificial</span>
+        <p>Infraestrutura de IA para empresas que desenvolvem software em escala, criadora do Dandori.</p>
+        <span class="go">axonictec.com.br →</span>
+      </a>
+      <a class="co" href="https://ltxglobal.com.br" target="_blank" rel="noopener">
+        <div class="lg"><img src="/img/empresas/ltx-global.png" alt="LTX Global" loading="lazy"></div>
+        <span class="k">Esporte · entretenimento</span>
+        <p>Experiências internacionais em esporte e entretenimento: Football Experience com o Atlético de Madrid e Infinity Games Con.</p>
+        <span class="go">ltxglobal.com.br →</span>
       </a>
     </div>
   </div>
@@ -320,7 +373,7 @@ footer a:hover{color:var(--signal)}
     if(!d||!d.episodios||d.episodios.length<3)return;
     var box=document.getElementById('nfd-eps'),esc=function(t){var e=document.createElement('i');e.textContent=t;return e.innerHTML};
     box.innerHTML=d.episodios.map(function(e){var dt=e.data.split('-').reverse().join('.');
-      return '<a class="ep" href="'+e.url+'" target="_blank" rel="noopener"><div class="th"><img src="'+e.thumb+'" alt="" loading="lazy" width="480" height="270"></div><div class="in"><span class="d">'+dt+'</span><h3>'+esc(e.titulo)+'</h3><span class="g">'+esc(e.convidado)+'</span></div></a>'}).join('');
+      return '<a class="ep" href="'+e.url+'" target="_blank" rel="noopener"><div class="th"><img src="https://i.ytimg.com/vi/'+e.id+'/maxresdefault.jpg" onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/'+e.id+'/mqdefault.jpg\'" alt="" loading="lazy" width="480" height="270"></div><div class="in"><span class="d">'+dt+'</span><h3>'+esc(e.titulo)+'</h3><span class="g">'+esc(e.convidado)+'</span></div></a>'}).join('');
   }).catch(function(){});
   // inscrição na news
   var f=document.getElementById('form-news'),ok=document.getElementById('news-ok');
