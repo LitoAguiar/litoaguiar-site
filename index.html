@@ -191,6 +191,42 @@ a{color:inherit}
 .mission .go{font-weight:700;font-size:14px;margin-top:4px}
 @media (max-width:860px){.mission{grid-template-columns:1fr}.mission .pn{min-height:160px}}
 
+/* na estrada */
+.road{background:var(--paper);padding-block:clamp(64px,9vw,112px)}
+.road .h{font-size:clamp(40px,5vw,68px);margin:14px 0 12px}
+.road .lead{color:var(--muted);max-width:38em;margin:0 0 32px}
+.agenda{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ev{display:grid;grid-template-columns:auto 1fr;gap:18px;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:22px;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s}
+.ev:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(10,13,26,.1)}
+.ev .dt{width:68px;text-align:center;background:var(--ink);color:#fff;border-radius:8px;padding:10px 6px;align-self:start}
+.ev .dt b{display:block;font-family:var(--display);font-stretch:75%;font-weight:800;font-size:34px;line-height:1}
+.ev .dt span{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal)}
+.ev .dt.tbd b{font-size:20px;line-height:1.1;padding:4px 0}
+.ev h3{margin:0 0 6px;font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:26px;line-height:1}
+.ev .meta{font-size:14px;color:var(--muted);margin:0 0 10px}
+.ev .role{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#8a5a00;background:#FFF3DA;border-radius:999px;padding:5px 10px}
+.ev .go{display:block;margin-top:12px;font-weight:700;font-size:14px}
+.gal{display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:12px;margin-top:28px}
+.gal img{width:100%;height:220px;object-fit:cover;border-radius:8px}
+.invite{margin-top:28px;background:var(--ink);color:#fff;border-radius:10px;padding:clamp(24px,3.5vw,44px);display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,3vw,44px)}
+.invite .h{font-size:clamp(34px,4vw,56px);margin:10px 0 12px}
+.invite p{color:var(--soft-d);margin:0 0 14px}
+.invite ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.invite li{color:#fff;font-size:15px}.invite li::before{content:"● ";color:var(--signal)}
+.iform{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.iform label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:var(--soft-d)}
+.iform .full{grid-column:1/-1}
+.iform input,.iform select,.iform textarea{font:inherit;font-size:16px;min-height:50px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.25);border-radius:6px;background:#121729;color:#fff}
+.iform textarea{min-height:90px;resize:vertical}
+.iform input:focus,.iform select:focus,.iform textarea:focus{outline:2px solid var(--signal);outline-offset:1px}
+.iform .err{color:#ff8a7a;font-size:13px}
+.iform button{grid-column:1/-1;min-height:56px;border:0;border-radius:6px;background:var(--signal);color:var(--ink);font:inherit;font-weight:700;font-size:17px;cursor:pointer}
+.iform .hp{position:absolute;left:-9999px}
+.iok{background:#121729;border-radius:8px;padding:22px}
+.iok strong{display:block;font-family:var(--display);font-stretch:75%;font-weight:800;font-size:30px;text-transform:uppercase;color:var(--signal);margin-bottom:6px}
+@media (max-width:1000px){.agenda{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.gal img{height:160px}.invite{grid-template-columns:1fr}}
+@media (max-width:560px){.iform{grid-template-columns:1fr}}
+
 /* rodapé */
 footer{background:var(--ink);color:var(--muted-d);padding-block:36px;font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:16px 28px;justify-content:space-between;align-items:center}
@@ -218,7 +254,7 @@ footer a:hover{color:var(--signal)}
   <div class="wrap">
     <div class="nav">
       <a href="/" aria-label="Lito Aguiar, página inicial"><img src="/mentoria/img/logo-lito-aguiar.png" alt="Lito Aguiar" width="148" height="30"></a>
-      <span style="display:flex;gap:20px"><a class="link" href="#no-fim-do-dia">No Fim do Dia</a><a class="link" href="#empresas">Empresas</a><a class="link" href="/news/">Newsletter</a></span>
+      <span style="display:flex;gap:20px"><a class="link" href="#no-fim-do-dia">No Fim do Dia</a><a class="link" href="#eventos">Eventos</a><a class="link" href="#empresas">Empresas</a><a class="link" href="/news/">Newsletter</a></span>
     </div>
     <div class="hero">
       <div>
@@ -286,6 +322,58 @@ footer a:hover{color:var(--signal)}
         <div class="th"><img src="https://i.ytimg.com/vi/GI5kQi1WTf8/maxresdefault.jpg" onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/GI5kQi1WTf8/mqdefault.jpg\'" alt="" loading="lazy" width="480" height="270"></div>
         <div class="in"><span class="d">16.09.2026</span><h3>A IA está te deixando PIOR (e mais rápido): O Futuro das Vendas</h3><span class="g">Theo Orosco</span></div>
       </a>
+    </div>
+  </div>
+</section>
+
+<section class="road" id="eventos" aria-labelledby="ev-t">
+  <div class="wrap">
+    <span class="eyebrow">Na estrada</span>
+    <h2 class="h" id="ev-t">Onde vou <span style="color:#C27C0E">estar</span></h2>
+    <p class="lead">Eventos de negócios, tecnologia e inovação onde estou presente, gravando o No Fim do Dia, entrevistando quem decide e ajudando a divulgar o ecossistema.</p>
+    <div class="agenda" id="agenda">
+      <a class="ev" data-fim="2026-11-05" href="https://luma.com/xeoof2x6" target="_blank" rel="noopener">
+        <div class="dt"><b>05</b><span>nov</span></div>
+        <div><h3>Decolando para o Futuro</h3><p class="meta">Armazém Cloud · Ágora Tech Park · Joinville (SC)</p><span class="role">Cobertura e entrevistas</span><span class="go">Ver evento →</span></div>
+      </a>
+      <a class="ev" data-fim="2026-11-11" href="https://www.sympla.com.br/evento/conexao-indtech-2026/3598187" target="_blank" rel="noopener">
+        <div class="dt"><b>11</b><span>nov</span></div>
+        <div><h3>Conexão Indtech 2026</h3><p class="meta">Softville · Ágora Tech Park · Joinville (SC)</p><span class="role">Cobertura e entrevistas</span><span class="go">Ver evento →</span></div>
+      </a>
+      <a class="ev" href="https://ltxglobal.com.br/footballxp/" target="_blank" rel="noopener">
+        <div class="dt tbd"><b>Em breve</b><span>data</span></div>
+        <div><h3>Lançamento Football Experience Madrid</h3><p class="meta">LTX Global · intercâmbio com o Atlético de Madrid</p><span class="role">Anfitrião</span><span class="go">Conhecer o programa →</span></div>
+      </a>
+    </div>
+    <div class="gal" aria-label="Em palcos e estúdios">
+      <img src="/mentoria/img/f02-palco-dwx.jpg" alt="Lito no palco do DWX" loading="lazy">
+      <img src="/mentoria/img/f03-onair.jpg" alt="Lito em estúdio On Air" loading="lazy">
+      <img src="/mentoria/img/f05-auditorio.jpg" alt="Lito palestrando em auditório" loading="lazy">
+      <img src="/mentoria/img/f06-conversas-patio.jpg" alt="Gravação do Conversas de Pátio" loading="lazy">
+    </div>
+    <div class="invite" id="convite">
+      <div>
+        <span class="eyebrow" style="color:var(--signal)">Para organizadores</span>
+        <h2 class="h">Leve o Lito para o seu evento</h2>
+        <p>Palco, estúdio e audiência trabalhando a favor do seu evento, antes, durante e depois.</p>
+        <ul><li>Palestra sobre autoridade, marketing e vendas</li><li>Mediação de painéis com quem decide</li><li>No Fim do Dia gravado ao vivo no seu evento</li><li>Cobertura com entrevistas e divulgação</li></ul>
+      </div>
+      <div>
+        <form class="iform" id="form-convite" novalidate>
+          <label>Seu nome<input name="nome" autocomplete="name" required><span class="err" data-e="nome"></span></label>
+          <label>WhatsApp<input name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" placeholder="(48) 99999-9999" required><span class="err" data-e="whatsapp"></span></label>
+          <label class="full">E-mail<input name="email" type="email" autocomplete="email" required><span class="err" data-e="email"></span></label>
+          <label class="full">Nome do evento<input name="evento" required><span class="err" data-e="evento"></span></label>
+          <label>Data<input name="data" placeholder="ex.: 20/03/2027"></label>
+          <label>Cidade<input name="cidade" autocomplete="address-level2"></label>
+          <label>Público esperado<select name="publico"><option value="">Selecione</option><option>Até 100 pessoas</option><option>100 a 500</option><option>500 a 2.000</option><option>Mais de 2.000</option></select></label>
+          <label>Formato<select name="formato" required><option value="">Selecione</option><option value="palestra">Palestra</option><option value="mediacao">Mediação de painel</option><option value="podcast">No Fim do Dia ao vivo</option><option value="cobertura">Cobertura e entrevistas</option><option value="outro">Outro</option></select><span class="err" data-e="formato"></span></label>
+          <label class="full">Conte um pouco sobre o evento<textarea name="detalhes"></textarea></label>
+          <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit">Enviar convite</button>
+        </form>
+        <div class="iok" id="convite-ok" hidden tabindex="-1"><strong>Convite recebido.</strong>Eu ou alguém do meu time responde em até 2 dias úteis.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -431,6 +519,28 @@ footer a:hover{color:var(--signal)}
     }).catch(function(){b.disabled=false;b.textContent='Tentar de novo';});
   });
   document.querySelectorAll('[data-ga]').forEach(function(a){a.addEventListener('click',function(){if(window.gtag)gtag('event','join_group',{group_id:a.dataset.ga})})});
+})();
+</script>
+<script>
+(function(){
+  var hoje=new Date();hoje.setHours(0,0,0,0);
+  document.querySelectorAll('#agenda .ev[data-fim]').forEach(function(e){var f=new Date(e.dataset.fim+'T23:59:59');if(f<hoje)e.remove();});
+  var f=document.getElementById('form-convite'),ok=document.getElementById('convite-ok');
+  if(!f)return;
+  f.addEventListener('submit',function(ev){ev.preventDefault();f.querySelectorAll('.err').forEach(function(e){e.textContent=''});
+    var d=Object.fromEntries(new FormData(f).entries()),bad={};
+    if((d.nome||'').trim().length<3)bad.nome='Informe seu nome.';
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email||''))bad.email='Informe um e-mail válido.';
+    if((d.whatsapp||'').replace(/\D/g,'').length<10)bad.whatsapp='Informe o WhatsApp com DDD.';
+    if(!(d.evento||'').trim())bad.evento='Informe o nome do evento.';
+    if(!d.formato)bad.formato='Escolha o formato.';
+    if(Object.keys(bad).length){Object.keys(bad).forEach(function(k){f.querySelector('[data-e='+k+']').textContent=bad[k]});f.querySelector('[name='+Object.keys(bad)[0]+']').focus();return;}
+    var b=f.querySelector('button');b.disabled=true;b.textContent='Enviando…';
+    fetch('/eventos/convite.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)}).then(function(r){return r.json()}).then(function(j){
+      if(j.ok){f.hidden=true;ok.hidden=false;ok.focus();if(window.gtag)gtag('event','generate_lead',{form_id:'convite_evento',formato:d.formato});return;}
+      Object.keys(j.erros||{}).forEach(function(k){var e=f.querySelector('[data-e='+k+']');if(e)e.textContent=j.erros[k]});b.disabled=false;b.textContent='Enviar convite';
+    }).catch(function(){b.disabled=false;b.textContent='Tentar de novo'});
+  });
 })();
 </script>
 </body>
