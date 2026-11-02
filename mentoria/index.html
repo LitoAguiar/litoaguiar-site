@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P5EMXH85QE"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-P5EMXH85QE');</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Fluxo de Autoridade · Mentoria Lito Aguiar</title>
@@ -702,7 +705,7 @@ html.paused .track,html.paused .fade img,html.paused .rec i{animation-play-state
     var b=f.querySelector('button[type=submit]');b.disabled=true;b.textContent='Enviando…';
     var data={};['nome','email','whatsapp','empresa','cargo','faturamento','objetivo','site'].forEach(function(n){data[n]=f.elements[n].value});data.consentimento=f.elements.consentimento.checked;
     fetch('aplicar.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(function(r){return r.json().then(function(j){return{s:r.status,j:j}})}).then(function(res){
-      if(res.j&&res.j.ok){f.hidden=true;ok.hidden=false;ok.focus();if(window.dataLayer)window.dataLayer.push({event:'aplicacao_mentoria'});return;}
+      if(res.j&&res.j.ok){f.hidden=true;ok.hidden=false;ok.focus();if(window.dataLayer)window.dataLayer.push({event:'aplicacao_mentoria'});if(window.gtag)gtag('event','generate_lead',{form_id:'mentoria_agendar'});return;}
       if(res.j&&res.j.erros){Object.keys(res.j.erros).forEach(function(n){setErr(n,res.j.erros[n])});}
       else{st.textContent='Não conseguimos enviar agora. Tente de novo em instantes ou escreva para lito@litoaguiar.com.br.';st.hidden=false;}
       b.disabled=false;b.textContent='Agendar minha conversa';
