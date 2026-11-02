@@ -101,6 +101,12 @@ a{color:inherit}
 .tile .k{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a5a00}
 .tile h3{margin:0;font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:28px;line-height:1}
 .tile p{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
+.cols3{grid-template-columns:repeat(3,1fr)}
+.tile .ph{position:relative}
+.tile .ph>img{aspect-ratio:4/3;object-fit:cover;width:100%;display:block}
+.tile .badge{position:absolute;left:16px;bottom:16px;background:#fff;border-radius:8px;padding:10px 14px;box-shadow:0 8px 24px rgba(10,13,26,.25);display:flex;align-items:center}
+.tile .badge img{height:30px;width:auto;aspect-ratio:auto;object-fit:contain}
+@media (max-width:1000px){.cols3{grid-template-columns:1fr}}
 .tile .go{margin-top:auto;padding-top:8px;font-weight:700;font-size:15px}
 .news-band{background:var(--signal);color:var(--ink);border-radius:10px;margin-top:20px;padding:clamp(24px,3.5vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
 .news-band .h{font-size:clamp(32px,3.8vw,52px)}
@@ -469,15 +475,19 @@ footer a:hover{color:var(--signal)}
 <section class="content" style="padding-top:clamp(64px,9vw,120px)">
   <div class="wrap">
     <span class="eyebrow">Conteúdo</span>
-    <h2 class="h">Onde mais eu falo de negócios</h2>
-    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
-      <a class="tile" href="https://www.youtube.com/@lito.aguiar" target="_blank" rel="noopener">
-        <img src="/mentoria/img/g2-pantech-estudio.jpg" alt="Estúdio do Pantech" loading="lazy" style="object-position:center 30%">
-        <div class="in"><span class="k">Podcast · Jovem Pan · 2 anos</span><h3>Pantech</h3><p>Tecnologia e inovação: mais de 100 mil visualizações em seis meses e mais de 7 mil ouvintes por minuto na rádio.</p><span class="go">Ver no YouTube →</span></div>
+    <h2 class="h">Onde escrevo sobre negócios</h2>
+    <div class="grid cols3">
+      <a class="tile col" href="https://ndmais.com.br/tag/lito-aguiar/" target="_blank" rel="noopener">
+        <div class="ph"><img src="/mentoria/img/f07-palco-mede.jpg" alt="Lito Aguiar no palco falando sobre métricas de negócio" loading="lazy" style="object-position:70% center"><span class="badge"><img src="/mentoria/img/midia-ndmais.png" alt="ND+"></span></div>
+        <div class="in"><span class="k">Colunista · Grupo ND</span><h3>ND+</h3><p>Negócios, varejo e tecnologia no portal do Grupo ND, afiliado à Record em Santa Catarina.</p><span class="go">Ler as colunas →</span></div>
       </a>
-      <a class="tile" href="https://ndmais.com.br/tag/lito-aguiar/" target="_blank" rel="noopener">
-        <img src="/mentoria/img/f08-painel.jpg" alt="Lito Aguiar em um painel" loading="lazy">
-        <div class="in"><span class="k">Colunas</span><h3>Colunista de negócios</h3><p>Análises em três portais de Santa Catarina: ND+, Economia SC e Acontecendo Aqui.</p><span class="go">Ler no ND+ →</span></div>
+      <a class="tile col" href="https://economiasc.com/author/litoaguiar/" target="_blank" rel="noopener">
+        <div class="ph"><img src="/mentoria/img/converter-quadro.jpg" alt="Lito Aguiar explicando estratégia no quadro" loading="lazy" style="object-position:60% center"><span class="badge"><img src="/mentoria/img/midia-economiasc.png" alt="Economia SC"></span></div>
+        <div class="in"><span class="k">Colunista</span><h3>Economia SC</h3><p>Planejamento, experiência do cliente e decisões de crescimento para empresas catarinenses.</p><span class="go">Ler as colunas →</span></div>
+      </a>
+      <a class="tile col" href="https://acontecendoaqui.com.br/colunista/lito-aguiar/" target="_blank" rel="noopener">
+        <div class="ph"><img src="/mentoria/img/ler-conversa.jpg" alt="Lito Aguiar em conversa com empresários" loading="lazy" style="object-position:center 30%"><span class="badge"><img src="/mentoria/img/midia-acontecendoaqui.png" alt="AcontecendoAqui"></span></div>
+        <div class="in"><span class="k">Coluna Inovação e Crescimento</span><h3>AcontecendoAqui</h3><p>Inteligência artificial, estratégia B2B e o que separa crescimento de ineficiência.</p><span class="go">Ler as colunas →</span></div>
       </a>
     </div>
 
