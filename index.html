@@ -206,6 +206,11 @@ a{color:inherit}
 .ev .meta{font-size:14px;color:var(--muted);margin:0 0 10px}
 .ev .role{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#8a5a00;background:#FFF3DA;border-radius:999px;padding:5px 10px}
 .ev .go{display:block;margin-top:12px;font-weight:700;font-size:14px}
+.rec-h{display:flex;align-items:center;gap:12px;margin:34px 0 14px;font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.rec-h::after{content:"";flex:1;height:1px;background:var(--line)}
+.ev.past .dt{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+.ev.past .dt span{color:#8a5a00}
+.ev .role.live{background:#111;color:#F7C843}
 .gal{display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:12px;margin-top:28px}
 .gal img{width:100%;height:220px;object-fit:cover;border-radius:8px}
 .invite{margin-top:28px;background:var(--ink);color:#fff;border-radius:10px;padding:clamp(24px,3.5vw,44px);display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,3vw,44px)}
@@ -330,7 +335,7 @@ footer a:hover{color:var(--signal)}
   <div class="wrap">
     <span class="eyebrow">Na estrada</span>
     <h2 class="h" id="ev-t">Onde vou <span style="color:#C27C0E">estar</span></h2>
-    <p class="lead">Eventos de negócios, tecnologia e inovação onde estou presente, gravando o No Fim do Dia, entrevistando quem decide e ajudando a divulgar o ecossistema.</p>
+    <p class="lead">Eventos de negócios, tecnologia e inovação onde estou presente: gravando o No Fim do Dia ao vivo, entrevistando quem decide e ajudando a divulgar o ecossistema.</p>
     <div class="agenda" id="agenda">
       <a class="ev" data-fim="2026-11-05" href="https://luma.com/xeoof2x6" target="_blank" rel="noopener">
         <div class="dt"><b>05</b><span>nov</span></div>
@@ -343,6 +348,13 @@ footer a:hover{color:var(--signal)}
       <a class="ev" href="https://ltxglobal.com.br/footballxp/" target="_blank" rel="noopener">
         <div class="dt tbd"><b>Em breve</b><span>data</span></div>
         <div><h3>Lançamento Football Experience Madrid</h3><p class="meta">LTX Global · intercâmbio com o Atlético de Madrid</p><span class="role">Anfitrião</span><span class="go">Conhecer o programa →</span></div>
+      </a>
+    </div>
+    <div class="rec-h">Recentes</div>
+    <div class="agenda" id="recentes">
+      <a class="ev past" data-ate="2027-01-27" href="https://southtechsummit.com.br/" target="_blank" rel="noopener">
+        <div class="dt"><b>29</b><span>out</span></div>
+        <div><h3>South Tech Summit 2026</h3><p class="meta">ACATE Polo CETUS · Criciúma (SC)</p><span class="role live">No Fim do Dia ao vivo</span><p class="meta" style="margin:10px 0 0">Episódio gravado com Evandro Pires, AWS Serverless Hero, nas trilhas de Negócios e Tecnologia.</p><span class="go">Ver o evento →</span></div>
       </a>
     </div>
     <div class="gal" aria-label="Em palcos e estúdios">
@@ -524,7 +536,7 @@ footer a:hover{color:var(--signal)}
 <script>
 (function(){
   var hoje=new Date();hoje.setHours(0,0,0,0);
-  document.querySelectorAll('#agenda .ev[data-fim]').forEach(function(e){var f=new Date(e.dataset.fim+'T23:59:59');if(f<hoje)e.remove();});
+  document.querySelectorAll('#agenda .ev[data-fim]').forEach(function(e){var f=new Date(e.dataset.fim+'T23:59:59');if(f<hoje)e.remove();});document.querySelectorAll('#recentes .ev[data-ate]').forEach(function(e){if(new Date(e.dataset.ate+'T23:59:59')<hoje)e.remove();});var r=document.getElementById('recentes');if(r&&!r.children.length){r.previousElementSibling.remove();r.remove();}
   var f=document.getElementById('form-convite'),ok=document.getElementById('convite-ok');
   if(!f)return;
   f.addEventListener('submit',function(ev){ev.preventDefault();f.querySelectorAll('.err').forEach(function(e){e.textContent=''});
