@@ -176,6 +176,21 @@ a{color:inherit}
 @media (max-width:1000px){.emp-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.emp-grid{grid-template-columns:1fr}}
 
+.mission{margin-top:16px;display:grid;grid-template-columns:.85fr 1.15fr;border:1px dashed rgba(245,165,36,.55);border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .2s}
+.mission:hover{border-color:var(--signal)}
+.mission .pn{position:relative;padding:28px 26px;display:flex;flex-direction:column;justify-content:flex-end;min-height:220px;background:radial-gradient(120% 90% at 10% 100%,rgba(108,171,221,.35),transparent 60%),linear-gradient(180deg,#0E1424,#0A0D1A);background-color:#0E1424}
+.mission .pn::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:44px 44px}
+.mission .pn span{position:relative;font-family:var(--mono);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#9CC9EE}
+.mission .pn b{position:relative;font-family:var(--display);font-stretch:75%;font-weight:800;font-style:italic;font-size:clamp(46px,6vw,76px);line-height:.95;text-transform:uppercase;color:#fff;margin-top:6px}
+.mission .tx{padding:28px 26px;display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,.03)}
+.mission .badge{align-self:flex-start;font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--signal);border:1.5px solid var(--signal);border-radius:999px;padding:6px 14px}
+.mission h3{margin:4px 0 0;font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:clamp(28px,3vw,40px);line-height:1}
+.mission p{margin:0;color:var(--soft-d);font-size:15.5px;line-height:1.55;max-width:44em}
+.mission .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.mission .tags i{font-style:normal;font-size:13px;border:1px solid var(--line-d);border-radius:999px;padding:6px 12px;color:#fff}
+.mission .go{font-weight:700;font-size:14px;margin-top:4px}
+@media (max-width:860px){.mission{grid-template-columns:1fr}.mission .pn{min-height:160px}}
+
 /* rodapé */
 footer{background:var(--ink);color:var(--muted-d);padding-block:36px;font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:16px 28px;justify-content:space-between;align-items:center}
@@ -318,6 +333,17 @@ footer a:hover{color:var(--signal)}
         <span class="go">Infinity Games Con →</span>
       </a>
     </div>
+    <a class="mission" href="https://ltxglobal.com.br/#marcas" target="_blank" rel="noopener" aria-label="Missão Empresarial Manchester City, em breve">
+      <div class="pn"><span>Inglaterra</span><b>Manchester</b></div>
+      <div class="tx">
+        <span class="badge">Em breve</span>
+        <span class="k" style="font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9CC9EE">Missão empresarial · LTX Global</span>
+        <h3>Missão Empresarial Manchester City</h3>
+        <p>Uma imersão para grandes empresários no Manchester City como organização de alta performance: gestão, cultura e negócios de um dos clubes mais vencedores do mundo. Inclui visitas a empresas de referência global e um jogo no estádio.</p>
+        <div class="tags"><i>Gestão e liderança</i><i>Visitas a empresas</i><i>Jogo no estádio</i></div>
+        <span class="go">Quero saber primeiro →</span>
+      </div>
+    </a>
   </div>
 </section>
 
