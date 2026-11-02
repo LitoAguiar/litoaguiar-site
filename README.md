@@ -8,3 +8,8 @@ Site pessoal de Lito Aguiar, publicado na Hostinger via Git (deploy automático 
 - `news/` — arquivo da newsletter Do Dado à Decisão (`index.html` lista as edições; cada edição em `news/NN/index.html`)
 
 Páginas estáticas, sem build. Toda alteração na `main` vai para o ar.
+
+## Integrações
+- `nfd.php` — últimos 3 episódios do No Fim do Dia (RSS do YouTube, cache 6h); a home mostra 3 episódios fixos se falhar
+- `news/assinar.php` — inscrição na newsletter → conversão `news-site` no RD Marketing (+ cópia em `news/dados/`)
+- `inc/rd-marketing.php` — envio de conversões; lê o token público de `rd-marketing.json` **fora do repositório** (pasta acima de `public_html`: `{"token_publico":"..."}`). A mentoria usa o mesmo arquivo.

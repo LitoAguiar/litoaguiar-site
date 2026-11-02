@@ -4,7 +4,7 @@
  * - valida os campos
  * - envia um e-mail para AVISO_PARA com os dados do lead
  * - guarda uma cópia em mentoria/dados/leads.csv (pasta protegida por .htaccess)
- * - se RD_TOKEN estiver preenchido, registra a conversão no RD Station Marketing
+ * - registra a conversão no RD Station Marketing (se rd-marketing.json existir no servidor)
  */
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
@@ -12,7 +12,6 @@ require __DIR__ . '/crm.php';
 
 const AVISO_PARA = 'lito@litoaguiar.com.br';
 const REMETENTE  = 'site@litoaguiar.com.br';
-const RD_TOKEN   = ''; // token público do RD Station (Configurações → Integrações → Tokens)
 const RD_EVENTO  = 'aplicacao-mentoria-fluxo-de-autoridade';
 
 function responder(int $status, array $dados): void {
@@ -83,23 +82,14 @@ $corpo = "Nova aplicação para a mentoria Fluxo de Autoridade\n\n"
 $cab = "From: Site Lito Aguiar <" . REMETENTE . ">\r\nReply-To: {$lead['email']}\r\nContent-Type: text/plain; charset=UTF-8\r\n";
 $enviado = @mail(AVISO_PARA, '=?UTF-8?B?' . base64_encode($assunto) . '?=', $corpo, $cab, '-f' . REMETENTE);
 
-// 4) RD Station Marketing (opcional)
-if (RD_TOKEN !== '' && function_exists('curl_init')) {
-  $ch = curl_init('https://api.rd.services/platform/conversions?api_key=' . urlencode(RD_TOKEN));
-  curl_setopt_array($ch, [
-    CURLOPT_POST => true, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 8,
-    CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
-    CURLOPT_POSTFIELDS => json_encode(['event_type' => 'CONVERSION', 'event_family' => 'CDP', 'payload' => [
-      'conversion_identifier' => RD_EVENTO,
-      'name' => $lead['nome'], 'email' => $lead['email'], 'mobile_phone' => $lead['whatsapp'],
-      'company_name' => $lead['empresa'], 'job_title' => $lead['cargo'],
-      'cf_faturamento_anual' => $rotulos[$lead['faturamento']],
-      'tags' => [$noPerfil ? 'mentoria-no-perfil' : 'mentoria-fora-do-perfil'],
-      'legal_bases' => [['category' => 'communications', 'type' => 'consent', 'status' => 'granted']],
-    ]]),
-  ]);
-  curl_exec($ch);
-  curl_close($ch);
-}
+// 4) RD Station Marketing (token em rd-marketing.json, fora do repositório; ver inc/rd-marketing.php)
+require_once dirname(__DIR__) . '/inc/rd-marketing.php';
+rdm_conversao(RD_EVENTO, [
+  'name' => $lead['nome'], 'email' => $lead['email'], 'mobile_phone' => $lead['whatsapp'],
+  'company_name' => $lead['empresa'], 'job_title' => $lead['cargo'],
+  'cf_faturamento_anual' => $rotulos[$lead['faturamento']],
+  'tags' => [$noPerfil ? 'mentoria-no-perfil' : 'mentoria-fora-do-perfil'],
+  'legal_bases' => [['category' => 'communications', 'type' => 'consent', 'status' => 'granted']],
+]);
 
 responder(200, ['ok' => true, 'noPerfil' => $noPerfil, 'avisado' => (bool) $enviado, 'crm' => $crm['ok']]);

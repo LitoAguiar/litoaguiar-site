@@ -42,6 +42,24 @@
   .bio strong{font-family:'Archivo Black','Arial Black',Arial,sans-serif;font-size:16px}
   .bio p{margin:4px 0 8px;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:var(--muted)}
   .bio a{font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:bold;color:var(--ink)}
+  .sub{background:var(--amber);padding:26px 24px}
+  .sub h2{margin:0 0 6px;font-family:'Archivo Black','Arial Black',Arial,sans-serif;font-size:24px;line-height:1.15;color:var(--ink)}
+  .sub p{margin:0 0 16px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:22px;color:var(--ink)}
+  .sform{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .sform label{display:flex;flex-direction:column;gap:5px;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:bold;color:var(--ink)}
+  .sform .full{grid-column:1/-1}
+  .sform input{font:16px Arial,Helvetica,sans-serif;min-height:50px;padding:0 12px;border:2px solid var(--ink);border-radius:4px;background:#fff}
+  .sform .err{color:#7a0000;font-size:12px}
+  .sform button{grid-column:1/-1;min-height:54px;border:0;border-radius:4px;background:var(--ink);color:var(--amber);font-family:'Archivo Black','Arial Black',Arial,sans-serif;font-size:16px;text-transform:uppercase;cursor:pointer}
+  .sform .fine{grid-column:1/-1;margin:0;font-size:12px;line-height:17px}
+  .sform .hp{position:absolute;left:-9999px}
+  .sok{background:var(--ink);color:#fff;padding:20px;font-family:Arial,Helvetica,sans-serif}
+  .sok strong{display:block;font-family:'Archivo Black','Arial Black',Arial,sans-serif;color:var(--amber);font-size:20px;margin-bottom:4px}
+  .wa{margin:8px 24px 0;background:var(--ink);color:#fff;padding:24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+  .wa h2{margin:0 0 6px;font-family:'Archivo Black','Arial Black',Arial,sans-serif;font-size:22px;line-height:1.2}
+  .wa p{margin:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:var(--soft);max-width:30em}
+  .wa a{background:#25D366;color:#06200F;font-family:'Archivo Black','Arial Black',Arial,sans-serif;text-transform:uppercase;font-size:14px;text-decoration:none;padding:15px 20px;border-radius:4px}
+  @media (max-width:560px){.sform{grid-template-columns:1fr}}
   footer{height:8px;background:var(--ink)}
 </style>
 </head>
@@ -51,8 +69,22 @@
     <div class="kick">Newsletter · toda terça, 7h30</div>
     <h1>Do dado<br><span>à decisão.</span></h1>
     <p>Negócios, marketing e vendas sem ruído. Toda terça, uma leitura do que mudou no mercado e o que fazer com isso. Por <strong>Lito Aguiar</strong>.</p>
-    <a class="cta" href="mailto:lito@litoaguiar.com.br?subject=Quero%20receber%20a%20Do%20Dado%20%C3%A0%20Decis%C3%A3o&amp;body=Quero%20receber%20a%20newsletter%20neste%20e-mail.">Quero receber &rarr;</a>
+    <a class="cta" href="#assinar">Quero receber &rarr;</a>
   </header>
+
+  <section class="sub" id="assinar">
+    <h2>Receba toda terça, às 7h30.</h2>
+    <p>Uma leitura do que mudou no mercado e o que fazer com isso. Leva 5 minutos.</p>
+    <form class="sform" id="form-news" novalidate>
+      <label>Nome<input name="nome" autocomplete="given-name" required><span class="err" data-e="nome"></span></label>
+      <label>E-mail<input name="email" type="email" autocomplete="email" inputmode="email" required><span class="err" data-e="email"></span></label>
+      <label class="full">WhatsApp (opcional, para o aviso da edição)<input name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" placeholder="(48) 99999-9999"><span class="err" data-e="whatsapp"></span></label>
+      <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit">Quero receber</button>
+      <p class="fine">Ao se inscrever, você concorda em receber a newsletter e comunicações de Lito Aguiar. Dá para sair a qualquer momento.</p>
+    </form>
+    <div class="sok" id="news-ok" hidden tabindex="-1"><strong>Inscrição feita.</strong>A próxima edição chega na terça, às 7h30.</div>
+  </section>
 
   <main>
     <p class="kick">Edições</p>
@@ -72,6 +104,11 @@
     </a>
   </main>
 
+  <div class="wa">
+    <div><h2>O que não cabe na coluna vai para o grupo.</h2><p>Bastidores dos episódios, os dados por trás das análises e conversa direta comigo. Grupo pequeno, sem spam.</p></div>
+    <a href="https://chat.whatsapp.com/DhCviqab0iN9zEZgybRimS" target="_blank" rel="noopener" data-ga="grupo_whatsapp">Entrar no grupo &rarr;</a>
+  </div>
+
   <div class="bio">
     <img src="https://email-editor-production.s3.amazonaws.com/images/142662/avatar-lito.jpg" alt="Lito Aguiar">
     <div>
@@ -82,5 +119,18 @@
   </div>
   <footer></footer>
 </div>
+<script>
+(function(){var f=document.getElementById('form-news'),ok=document.getElementById('news-ok');
+f.addEventListener('submit',function(ev){ev.preventDefault();f.querySelectorAll('.err').forEach(function(e){e.textContent=''});
+var d=Object.fromEntries(new FormData(f).entries());d.origem=location.pathname.indexOf('/news/0')===0?'news-edicao':'news';var bad={};
+if((d.nome||'').trim().length<2)bad.nome='Informe seu nome.';if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email||''))bad.email='Informe um e-mail válido.';
+if(Object.keys(bad).length){Object.keys(bad).forEach(function(k){f.querySelector('[data-e='+k+']').textContent=bad[k]});return;}
+var b=f.querySelector('button');b.disabled=true;b.textContent='Enviando…';
+fetch('/news/assinar.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)}).then(function(r){return r.json()}).then(function(j){
+if(j.ok){f.hidden=true;ok.hidden=false;ok.focus();if(window.gtag)gtag('event','sign_up',{method:'newsletter',form_id:'news_arquivo'});return;}
+Object.keys(j.erros||{}).forEach(function(k){var e=f.querySelector('[data-e='+k+']');if(e)e.textContent=j.erros[k]});b.disabled=false;b.textContent='Quero receber';
+}).catch(function(){b.disabled=false;b.textContent='Tentar de novo'});});
+document.querySelectorAll('[data-ga]').forEach(function(a){a.addEventListener('click',function(){if(window.gtag)gtag('event','join_group',{group_id:a.dataset.ga})})});})();
+</script>
 </body>
 </html>
