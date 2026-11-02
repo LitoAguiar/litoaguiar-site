@@ -211,6 +211,13 @@ a{color:inherit}
 .ev.past .dt{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
 .ev.past .dt span{color:#8a5a00}
 .ev .role.live{background:#111;color:#F7C843}
+.palcos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.palcos li{border-bottom:1px solid var(--line);padding:18px 18px 18px 0}
+.palcos a{display:block;color:inherit;text-decoration:none}
+.palcos .pk{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#8a5a00;margin-bottom:6px}
+.palcos b{display:block;font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:22px;line-height:1.05}
+.palcos .pr{display:block;font-size:14px;color:var(--muted);margin-top:6px;line-height:1.4}
+.palcos a:hover b{color:#C27C0E}
 .gal{display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:12px;margin-top:28px}
 .gal img{width:100%;height:220px;object-fit:cover;border-radius:8px}
 .invite{margin-top:28px;background:var(--ink);color:#fff;border-radius:10px;padding:clamp(24px,3.5vw,44px);display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,3vw,44px)}
@@ -229,7 +236,7 @@ a{color:inherit}
 .iform .hp{position:absolute;left:-9999px}
 .iok{background:#121729;border-radius:8px;padding:22px}
 .iok strong{display:block;font-family:var(--display);font-stretch:75%;font-weight:800;font-size:30px;text-transform:uppercase;color:var(--signal);margin-bottom:6px}
-@media (max-width:1000px){.agenda{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.gal img{height:160px}.invite{grid-template-columns:1fr}}
+@media (max-width:1000px){.palcos{grid-template-columns:1fr}.agenda{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.gal img{height:160px}.invite{grid-template-columns:1fr}}
 @media (max-width:560px){.iform{grid-template-columns:1fr}}
 
 /* rodapé */
@@ -357,6 +364,15 @@ footer a:hover{color:var(--signal)}
         <div><h3>South Tech Summit 2026</h3><p class="meta">ACATE Polo CETUS · Criciúma (SC)</p><span class="role live">No Fim do Dia ao vivo</span><p class="meta" style="margin:10px 0 0">Episódio gravado com Evandro Pires, AWS Serverless Hero, nas trilhas de Negócios e Tecnologia.</p><span class="go">Ver o evento →</span></div>
       </a>
     </div>
+    <div class="rec-h">Palcos e estúdios por onde passei</div>
+    <ul class="palcos">
+      <li><span class="pk">Ago 2026 · Florianópolis</span><b>Startup Summit 2026</b><span class="pr">Stand do No Fim do Dia: episódios gravados ao vivo e marcas conectadas ao podcast</span></li>
+      <li><a href="https://southtechsummit.com.br/" target="_blank" rel="noopener"><span class="pk">Out 2026 · Criciúma</span><b>South Tech Summit 2026</b><span class="pr">No Fim do Dia ao vivo com Evandro Pires, AWS Serverless Hero</span></a></li>
+      <li><span class="pk">Set 2026 · FIESC</span><b>NeoLevel</b><span class="pr">Workshop de podcast: teoria e prática, do roteiro à gravação</span></li>
+      <li><a href="https://www.youtube.com/watch?v=_BOpzyhAqkI" target="_blank" rel="noopener"><span class="pk">Ago 2026 · Convidado</span><b>Podcast Além do Backup</b><span class="pr">Tecjump, episódio 13 · assistir →</span></a></li>
+      <li><span class="pk">2 anos · Host</span><b>Pantech · Jovem Pan</b><span class="pr">Criador e apresentador do podcast de tecnologia e inovação</span></li>
+      <li><a href="#no-fim-do-dia"><span class="pk">Atual · Host</span><b>No Fim do Dia · Grupo ND</b><span class="pr">Portal ND+, afiliado Record, 7 emissoras em Santa Catarina</span></a></li>
+    </ul>
     <div class="gal" aria-label="Em palcos e estúdios">
       <img src="/mentoria/img/f02-palco-dwx.jpg" alt="Lito no palco do DWX" loading="lazy">
       <img src="/mentoria/img/f03-onair.jpg" alt="Lito em estúdio On Air" loading="lazy">
