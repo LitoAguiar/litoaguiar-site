@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P5EMXH85QE"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-P5EMXH85QE');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IA na indústria sem desmontar o time · Roteiro gratuito · Lito Aguiar</title>
+<meta name="description" content="Roteiro gratuito com 5 passos para os primeiros 90 dias de IA na indústria: tirar gente do trabalho repetitivo e colocar onde gera resultado. Por Lito Aguiar.">
+<link rel="canonical" href="https://litoaguiar.com.br/industria/">
+<meta name="theme-color" content="#0A0D1A">
+<meta property="og:title" content="IA na indústria sem desmontar o time · Roteiro gratuito">
+<meta property="og:description" content="5 passos para os primeiros 90 dias. Por Lito Aguiar, host do No Fim do Dia.">
+<meta property="og:image" content="https://litoaguiar.com.br/industria/og.jpg">
+<meta property="og:url" content="https://litoaguiar.com.br/industria/">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@75..125,500..800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --ink:#0A0D1A; --navy:#10142A; --line-d:rgba(255,255,255,.12);
+  --paper:#F3F4F7; --text:#0E1222; --muted:#4A5068; --muted-d:rgba(255,255,255,.7); --soft-d:rgba(255,255,255,.86);
+  --signal:#F5A524; --signal-2:#FFBA42;
+  --display:'Saira','Archivo Narrow','Arial Narrow',sans-serif;
+  --body:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --pad-x:clamp(20px, 5vw, 72px);
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:#fff;font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--signal)}
+.top{display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad-x);border-bottom:1px solid var(--line-d)}
+.top a{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:22px;text-transform:uppercase;color:#fff;text-decoration:none;letter-spacing:.02em}
+.top span{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-d)}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);grid-template-areas:'intro side' 'steps side';column-gap:clamp(32px,5vw,72px);row-gap:0;align-items:start;max-width:1200px;margin:0 auto;padding:clamp(36px,6vw,80px) var(--pad-x)}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--signal);margin:0 0 18px}
+h1{font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:-.01em;font-size:clamp(48px,8vw,96px);margin:0;text-wrap:balance}
+h1 span{color:var(--signal)}
+.intro .lead{margin-bottom:0}.lead{font-size:clamp(18px,2vw,21px);line-height:1.5;color:var(--soft-d);margin:22px 0 0;max-width:34em}
+.intro{grid-area:intro}.side{grid-area:side}.steps{grid-area:steps;list-style:none;margin:32px 0 0;padding:0;display:grid;gap:12px}
+.steps li{display:flex;gap:16px;align-items:baseline;padding:14px 0;border-top:1px solid var(--line-d)}
+.steps b{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:26px;color:var(--signal);min-width:34px}
+.steps span{color:var(--soft-d)}
+.card{background:var(--paper);color:var(--text);border-radius:10px;padding:clamp(22px,3vw,34px);position:sticky;top:24px}
+.card .cover{display:flex;gap:16px;align-items:center;margin:0 0 20px}
+.card .cover img{width:84px;height:105px;object-fit:cover;border-radius:4px;flex:none;box-shadow:0 6px 18px rgba(10,13,26,.25)}
+.card h2{font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:28px;line-height:1;margin:0 0 6px}
+.card .cover p{margin:0;font-size:14px;line-height:1.45;color:var(--muted)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:flex;flex-direction:column;gap:6px;min-width:0;font-size:14px;font-weight:600;color:var(--text)}
+.full{grid-column:1/-1}
+input[type=text],input[type=email],input[type=tel]{width:100%;min-width:0;font:16px var(--body);min-height:50px;padding:0 12px;border:2px solid #C9CCD6;border-radius:6px;background:#fff;color:var(--text)}
+input:focus{outline:3px solid var(--signal);outline-offset:1px;border-color:var(--ink)}
+.opt{font-weight:400;color:var(--muted)}
+.check{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400;font-size:14px;line-height:1.45;color:var(--muted)}
+.check input{width:22px;height:22px;margin:0;flex:none;accent-color:var(--ink)}
+.err{color:#9B1C1C;font-size:13px;font-weight:600;min-height:0}
+button,.btn{grid-column:1/-1;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 24px;border:0;border-radius:6px;background:var(--ink);color:var(--signal);font-family:var(--display);font-stretch:75%;font-weight:800;font-size:20px;text-transform:uppercase;letter-spacing:.02em;cursor:pointer;text-decoration:none}
+button:hover,.btn:hover{background:#1A1F3A}
+button:disabled{opacity:.6;cursor:wait}
+.fine{grid-column:1/-1;margin:0;font-size:12px;line-height:1.5;color:var(--muted)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.ok{display:grid;gap:14px}
+.ok strong{font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:30px;line-height:1}
+.ok p{margin:0;color:var(--muted)}
+.ok .btn{background:var(--signal);color:var(--ink)}
+.ok .btn:hover{background:var(--signal-2)}
+.ok .ment{border-top:1px solid #DEE0E7;padding-top:16px;font-size:15px}
+.ok .ment a{color:var(--text);font-weight:700}
+.bio{max-width:1200px;margin:0 auto;padding:clamp(32px,5vw,56px) var(--pad-x);border-top:1px solid var(--line-d);display:flex;gap:20px;align-items:center}
+.bio img{width:84px;height:84px;border-radius:50%;object-fit:cover;flex:none}
+.bio strong{font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:24px}
+.bio p{margin:4px 0 0;color:var(--muted-d);font-size:15px;line-height:1.5}
+footer{padding:24px var(--pad-x);border-top:1px solid var(--line-d);font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--muted-d);text-align:center}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;grid-template-areas:'intro' 'side' 'steps';row-gap:28px}
+  .card{position:static}
+  .steps{margin-top:0}
+}
+@media (max-width:340px){form{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top">
+  <a href="/">Lito Aguiar</a>
+  <span>Roteiro gratuito</span>
+</header>
+
+<main class="hero">
+  <div class="intro">
+    <p class="eyebrow">Conexão Indtech 2026 · Joinville</p>
+    <h1>IA na indústria <span>sem desmontar o time</span></h1>
+    <p class="lead">5 passos para os primeiros 90 dias: tirar gente do trabalho repetitivo e colocar onde gera resultado. O roteiro que saiu da conversa no palco com a ACATE e a ACIJ.</p>
+  </div>
+    <ol class="steps" aria-label="O que tem no roteiro">
+      <li><b>01</b><span>Mapear tempo perdido, não gente: onde o time gasta horas com tarefa que não exige julgamento.</span></li>
+      <li><b>02</b><span>Escolher um piloto com dono na operação e meta em número.</span></li>
+      <li><b>03</b><span>Cultura do erro antes da ferramenta: o ritual semanal que faz o piloto sobreviver.</span></li>
+      <li><b>04</b><span>Decidir antes para onde vão as horas liberadas, e como comunicar isso ao time.</span></li>
+      <li><b>05</b><span>Os 3 números para decidir, no dia 90, se escala ou encerra.</span></li>
+    </ol>
+
+  <aside class="side">
+    <div class="card" id="baixar">
+      <div class="cover">
+        <img src="capa.jpg" alt="Capa do roteiro IA na indústria sem desmontar o time" width="84" height="105">
+        <div>
+          <h2>Receba o roteiro</h2>
+          <p>PDF de 8 páginas, com checklist de 90 dias. Gratuito.</p>
+        </div>
+      </div>
+      <form id="form-roteiro" novalidate>
+        <label class="full">Nome<input type="text" name="nome" autocomplete="name" required><span class="err" data-e="nome"></span></label>
+        <label class="full">E-mail<input type="email" name="email" autocomplete="email" inputmode="email" required><span class="err" data-e="email"></span></label>
+        <label class="full">WhatsApp<input type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" placeholder="(47) 99999-9999" required><span class="err" data-e="whatsapp"></span></label>
+        <label><span>Empresa <span class="opt">(opcional)</span></span><input type="text" name="empresa" autocomplete="organization"></label>
+        <label><span>Cargo <span class="opt">(opcional)</span></span><input type="text" name="cargo" autocomplete="organization-title"></label>
+        <label class="check full"><input type="checkbox" name="news" value="1"><span>Quero receber também a newsletter <strong>Do Dado à Decisão</strong>, toda terça às 7h30.</span></label>
+        <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit">Quero o roteiro &rarr;</button>
+        <p class="fine">Seus dados ficam com Lito Aguiar e são usados para enviar este material e conteúdos relacionados. Nada de spam. Dá para sair a qualquer momento.</p>
+      </form>
+      <div class="ok" id="roteiro-ok" hidden tabindex="-1">
+        <strong>Pronto. O roteiro é seu.</strong>
+        <p>Clique para abrir o PDF. Vale salvar e compartilhar com quem lidera a operação aí.</p>
+        <a class="btn" id="link-pdf" href="#" target="_blank" rel="noopener">Abrir o roteiro (PDF) &rarr;</a>
+        <p class="ment">Quer aplicar isso com acompanhamento na sua empresa? <a href="/mentoria/?utm_source=site&amp;utm_medium=roteiro&amp;utm_campaign=ia-industria">Conheça a mentoria Fluxo de Autoridade</a>.</p>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<section class="bio" aria-label="Sobre o autor">
+  <img src="/mentoria/img/bio-retrato.jpg" alt="Lito Aguiar" width="84" height="84">
+  <div>
+    <strong>Lito Aguiar</strong>
+    <p>28 anos em negócios, marketing e vendas. Criador e host do No Fim do Dia (ND+ / Grupo ND) e, por dois anos, do Pantech, da Jovem Pan.</p>
+  </div>
+</section>
+<footer>litoaguiar.com.br · @litoaguiar</footer>
+
+<script>
+(function(){
+  var f=document.getElementById('form-roteiro'),ok=document.getElementById('roteiro-ok'),q=new URLSearchParams(location.search);
+  var origem=(q.get('o')||q.get('utm_source')||'direto').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,40)||'direto';
+  f.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    f.querySelectorAll('.err').forEach(function(e){e.textContent=''});
+    var d=Object.fromEntries(new FormData(f).entries());d.origem=origem;d.news=!!d.news;var bad={};
+    if((d.nome||'').trim().length<2)bad.nome='Informe seu nome.';
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email||''))bad.email='Informe um e-mail válido.';
+    if((d.whatsapp||'').replace(/\D/g,'').length<10)bad.whatsapp='Informe o WhatsApp com DDD.';
+    if(Object.keys(bad).length){Object.keys(bad).forEach(function(k){f.querySelector('[data-e='+k+']').textContent=bad[k]});f.querySelector('[name='+Object.keys(bad)[0]+']').focus();return;}
+    var b=f.querySelector('button');b.disabled=true;b.textContent='Enviando…';
+    fetch('/industria/baixar.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+      .then(function(r){return r.json()}).then(function(j){
+        if(j.ok){
+          document.getElementById('link-pdf').href=j.pdf;f.hidden=true;ok.hidden=false;ok.focus();
+          if(window.gtag)gtag('event','generate_lead',{form_id:'roteiro_ia_industria',origem:origem});
+          return;
+        }
+        Object.keys(j.erros||{}).forEach(function(k){var e=f.querySelector('[data-e='+k+']');if(e)e.textContent=j.erros[k]});
+        b.disabled=false;b.innerHTML='Quero o roteiro &rarr;';
+      }).catch(function(){b.disabled=false;b.textContent='Tentar de novo'});
+  });
+})();
+</script>
+</body>
+</html>
