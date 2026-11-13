@@ -71,14 +71,14 @@ section{padding-block:clamp(64px,9vw,112px)}
 .nav img{height:30px;width:auto}
 .nav a.link{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--soft-d)}
 .nav .links{display:flex;gap:20px}
-.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:clamp(28px,5vw,72px);align-items:end;padding-top:clamp(32px,6vw,72px)}
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:clamp(28px,5vw,64px);align-items:stretch;padding-top:clamp(32px,6vw,72px);padding-bottom:clamp(32px,5vw,56px)}
 .hero .eyebrow{color:var(--signal)}
-.hero .h{font-size:clamp(52px,7vw,112px);color:#fff;margin-top:18px}
+.hero .h{font-size:clamp(48px,5.6vw,92px);color:#fff;margin-top:18px}
 .hero p{font-size:clamp(18px,1.6vw,21px);color:var(--soft-d);max-width:34em;margin:22px 0 0}
 .hero p strong{color:#fff}
-.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 clamp(32px,6vw,72px)}
-.hero figure{margin:0;align-self:end}
-.hero figure img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 12%;border-radius:8px 8px 0 0}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 0}
+.hero figure{margin:0;align-self:stretch;min-height:440px}
+.hero figure img{width:100%;height:100%;object-fit:cover;object-position:30% 35%;border-radius:10px}
 .creds{border-top:1px solid var(--line-d);display:grid;grid-template-columns:repeat(4,1fr)}
 .creds div{padding:20px 16px 22px 0;font-size:14px;color:var(--muted-d);line-height:1.4}
 .creds b{display:block;font-family:var(--display);font-stretch:75%;font-weight:800;font-size:34px;color:#fff;text-transform:uppercase;line-height:1}
@@ -192,9 +192,9 @@ footer a:hover{color:var(--signal)}
 }
 @media (max-width:860px){
   .hero{grid-template-columns:1fr}
-  .hero figure{order:-1;max-width:240px}
-  .hero figure img{aspect-ratio:1/1;border-radius:50%}
-  .hero .actions{margin-bottom:32px}
+  .hero figure{order:-1;max-width:240px;min-height:0;height:240px}
+  .hero figure img{aspect-ratio:1/1;border-radius:50%;object-position:28% 30%}
+  .hero .actions{margin-bottom:0}
   .creds{grid-template-columns:repeat(2,1fr)}
   .nav .links{display:none}
 }
@@ -225,7 +225,7 @@ footer a:hover{color:var(--signal)}
           <a class="btn ghost" href="#teaser">Assistir ao teaser</a>
         </div>
       </div>
-      <figure><img class="bw" src="/img/colunas/nfd-lancamento.jpg" alt="Lito Aguiar com o microfone no lançamento do No Fim do Dia" width="1200" height="900" fetchpriority="high" style="object-position:30% 50%"></figure>
+      <figure><img class="bw" src="/img/colunas/nfd-lancamento.jpg" alt="Lito Aguiar com o microfone no lançamento do No Fim do Dia" width="1200" height="900" fetchpriority="high"></figure>
     </div>
     <div class="creds">
       <div><b>28 anos</b>em negócios, marketing e vendas</div>
