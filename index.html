@@ -264,7 +264,7 @@ footer a:hover{color:var(--signal)}
 }
 @media (max-width:420px){ .nums{grid-template-columns:1fr 1fr 1fr;gap:10px} .btn{width:100%;justify-content:center} }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
-@media (max-width:620px){.palcos{grid-template-columns:1fr}}
+@media (max-width:620px){.palcos{grid-template-columns:1fr}.navlinks a:not(:first-child){display:none}}
 </style>
 </head>
 <body>
@@ -273,7 +273,7 @@ footer a:hover{color:var(--signal)}
   <div class="wrap">
     <div class="nav">
       <a href="/" aria-label="Lito Aguiar, página inicial"><img src="/mentoria/img/logo-lito-aguiar.png" alt="Lito Aguiar" width="148" height="30"></a>
-      <span style="display:flex;gap:20px"><a class="link" href="#no-fim-do-dia">No Fim do Dia</a><a class="link" href="#eventos">Eventos</a><a class="link" href="#empresas">Empresas</a><a class="link" href="/news/">Newsletter</a></span>
+      <span class="navlinks" style="display:flex;gap:20px"><a class="link" href="/palestrante/">Palestras</a><a class="link" href="#no-fim-do-dia">No Fim do Dia</a><a class="link" href="#eventos">Eventos</a><a class="link" href="#empresas">Empresas</a><a class="link" href="/news/">Newsletter</a></span>
     </div>
     <div class="hero">
       <div>
@@ -394,6 +394,7 @@ footer a:hover{color:var(--signal)}
         <h2 class="h">Leve o Lito para o seu evento</h2>
         <p>Palco, estúdio e audiência trabalhando a favor do seu evento, antes, durante e depois.</p>
         <ul><li>Palestra sobre autoridade, marketing e vendas</li><li>Mediação de painéis com quem decide</li><li>No Fim do Dia gravado ao vivo no seu evento</li><li>Cobertura com entrevistas e divulgação</li></ul>
+        <p style="margin:16px 0 0"><a href="/palestrante/" style="color:var(--signal);font-weight:700">Ver palestras, palcos e teaser →</a></p>
       </div>
       <div>
         <form class="iform" id="form-convite" novalidate>
