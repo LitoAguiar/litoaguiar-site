@@ -1,0 +1,9 @@
+# HTML e PHP sempre revalidados: atualizações do site aparecem na hora
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|php)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+<IfModule LiteSpeed>
+  CacheLookup off
+</IfModule>
