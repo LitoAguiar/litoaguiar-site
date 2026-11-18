@@ -123,6 +123,14 @@ section{padding-block:clamp(64px,9vw,112px)}
 .gal figure:first-child{grid-row:span 2}
 .gal img{width:100%;height:100%;object-fit:cover}
 .gal figcaption{position:absolute;left:12px;bottom:12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:#fff;border-radius:999px;padding:5px 11px}
+.destaque{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 14px;margin:34px 0 14px}
+.destaque b{font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:28px;line-height:1}
+.destaque span{font-size:15px;color:var(--muted)}
+.gal2{display:grid;grid-template-columns:1fr 1.9fr 1fr;height:420px;gap:12px}
+.gal2 figure{margin:0;position:relative;border-radius:8px;overflow:hidden}
+.gal2 img{width:100%;height:100%;object-fit:cover}
+.gal2 figcaption{position:absolute;left:12px;bottom:12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:#F7C843;border-radius:999px;padding:5px 11px}
+.credito{font-size:12px;color:var(--muted);margin:8px 0 0}
 
 /* mídia */
 .mrow{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -187,6 +195,7 @@ footer a:hover{color:var(--signal)}
   .info,.palcos{grid-template-columns:1fr 1fr}
   .brands{grid-template-columns:repeat(3,1fr)}
   .gal{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px}
+  .gal2{grid-template-columns:1fr 1fr;height:auto;grid-auto-rows:240px}.gal2 figure:nth-child(2){grid-column:span 2;grid-row:1}
   .gal figure:first-child{grid-row:span 1;grid-column:span 2}
   .invite{grid-template-columns:1fr}
 }
@@ -292,6 +301,13 @@ footer a:hover{color:var(--signal)}
       <figure><img class="bw" src="/mentoria/img/converter-quadro.jpg" alt="Lito em aula e mentoria" loading="lazy"><figcaption>Aula e mentoria</figcaption></figure>
       <figure><img class="bw" src="/mentoria/img/ler-conversa.jpg" alt="Lito em conversa de negócios" loading="lazy" style="object-position:50% 30%"><figcaption>Relacionamento</figcaption></figure>
     </div>
+    <div class="destaque"><b>Conexão Indtech 2026</b><span>Ágora Tech Park, Joinville · painel com o No Fim do Dia no telão</span></div>
+    <div class="gal2">
+      <figure><img src="/img/eventos/indtech-lito-logo.jpg" alt="Lito Aguiar no palco do Conexão Indtech 2026" loading="lazy" style="object-position:50% 40%"><figcaption>Painelista</figcaption></figure>
+      <figure><img src="/img/eventos/indtech-auditorio.jpg" alt="Auditório do Ágora Tech Park no painel do Conexão Indtech com o No Fim do Dia" loading="lazy" style="object-position:50% 45%"><figcaption>Palco + No Fim do Dia</figcaption></figure>
+      <figure><img src="/img/eventos/indtech-palco-nfd.jpg" alt="Lito conduzindo o painel no palco do Conexão Indtech" loading="lazy" style="object-position:50% 52%"><figcaption>Condução do painel</figcaption></figure>
+    </div>
+    <p class="credito">Fotos: Diego Jarschel</p>
   </div>
 </section>
 
