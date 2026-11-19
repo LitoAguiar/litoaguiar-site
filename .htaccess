@@ -7,3 +7,6 @@
 <IfModule LiteSpeed>
   CacheLookup off
 </IfModule>
+
+# Scale News: /scale-news sempre aponta para a edição mais recente (atualizar a cada edição)
+RedirectMatch 302 ^/scale-news/?$ /news/04/

@@ -5,7 +5,8 @@ Site pessoal de Lito Aguiar, publicado na Hostinger via Git (deploy automático 
 - `index.html` — página inicial (hub pessoal: apresentação, mentoria em destaque, conteúdo e newsletter)
 - `robots.txt`, `sitemap.xml`, `favicon.png` — SEO básico; ao publicar nova edição da news, incluir a URL no `sitemap.xml`
 - `mentoria/` — LP da mentoria Fluxo de Autoridade (`index.html` + `img/`)
-- `news/` — arquivo da newsletter Do Dado à Decisão (`index.html` lista as edições; cada edição em `news/NN/index.html`)
+- `news/` — arquivo da newsletter Scale News (até a Nº 03 se chamava Do Dado à Decisão). `index.html` lista as edições; cada edição em `news/NN/index.html`
+- `/scale-news` — link fixo para a edição mais recente: redirect 302 no `.htaccess` da raiz. A cada edição nova, trocar o destino para `/news/NN/`
 
 Páginas estáticas, sem build. Toda alteração na `main` vai para o ar.
 
