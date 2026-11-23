@@ -1,8 +1,6 @@
 <?php
 /*
- * Últimos episódios COMPLETOS do No Fim do Dia (canal oficial no YouTube), via feed RSS.
- * Usa a playlist UULF (só vídeos longos: o YouTube já exclui Shorts e lives).
- * Reserva: feed do canal, descartando links /shorts/ e títulos com #shorts.
+ * Últimos episódios do No Fim do Dia (canal oficial no YouTube), via feed RSS.
  * Cache de 6 horas; se o YouTube falhar, mantém o último resultado bom.
  * Uso: /nfd.php → JSON {episodios:[{id,titulo,convidado,data,url,thumb}]}
  */
@@ -12,25 +10,21 @@ header('Cache-Control: public, max-age=1800');
 const CANAL = 'UCxLeZ6P5umXqda9Ft58lVnw';
 const TTL = 21600;
 const QTD = 3;
-$cacheFile = __DIR__ . '/.nfd-cache-v2.json';
+$cacheFile = __DIR__ . '/.nfd-cache.json';
 
 $cache = is_file($cacheFile) ? json_decode((string) file_get_contents($cacheFile), true) : null;
 if (!isset($_GET['atualizar']) && $cache && time() - ($cache['geradoEm'] ?? 0) < TTL) {
   echo json_encode($cache, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); exit;
 }
 
-function nfd_feed(string $qs): ?string {
-  if (!function_exists('curl_init')) return null;
-  $ch = curl_init('https://www.youtube.com/feeds/videos.xml?' . $qs);
+$xml = null;
+if (function_exists('curl_init')) {
+  $ch = curl_init('https://www.youtube.com/feeds/videos.xml?channel_id=' . CANAL);
   curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 10, CURLOPT_CONNECTTIMEOUT => 5, CURLOPT_FOLLOWLOCATION => true]);
   $xml = curl_exec($ch);
-  $ok = curl_getinfo($ch, CURLINFO_HTTP_CODE) === 200;
+  if (curl_getinfo($ch, CURLINFO_HTTP_CODE) !== 200) $xml = null;
   curl_close($ch);
-  return ($ok && $xml && strpos($xml, '<entry>') !== false) ? $xml : null;
 }
-
-// UC... → UULF...: playlist de uploads só com vídeos longos
-$xml = nfd_feed('playlist_id=UULF' . substr(CANAL, 2)) ?? nfd_feed('channel_id=' . CANAL);
 
 $eps = [];
 if ($xml && preg_match_all('#<entry>(.*?)</entry>#s', $xml, $m)) {
@@ -39,7 +33,7 @@ if ($xml && preg_match_all('#<entry>(.*?)</entry>#s', $xml, $m)) {
     preg_match('#<title>([^<]*)#', $e, $t);
     preg_match('#<published>([^<]+)#', $e, $p);
     $titulo = html_entity_decode($t[1] ?? '', ENT_QUOTES | ENT_HTML5, 'UTF-8');
-    if (stripos($titulo, '#shorts') !== false || stripos($e, 'youtube.com/shorts/') !== false) continue;
+    if (stripos($titulo, '#shorts') !== false) continue;
     $partes = explode('|', $titulo, 2);
     $eps[] = [
       'id' => $id[1],
