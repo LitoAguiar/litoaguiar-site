@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Saira:wdth,wght@75..125,500..800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Newsreader:opsz,wght@6..72,400..700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -40,7 +40,7 @@
   --paper:#F3F4F7; --white:#FFFFFF; --line:#DEE0E7;
   --text:#0E1222; --muted:#4A5068; --muted-d:rgba(255,255,255,.66); --soft-d:rgba(255,255,255,.84);
   --signal:#F5A524; --signal-2:#FFBA42;
-  --display:'Saira','Archivo Narrow','Arial Narrow',sans-serif;
+  --display:'Newsreader',Georgia,'Times New Roman',serif;
   --body:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
   --pad-x:clamp(20px,5vw,80px);
@@ -55,7 +55,7 @@ a{color:inherit}
 .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;color:var(--muted)}
 .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--signal);flex:none}
 .dark .eyebrow,.top .eyebrow{color:var(--signal)}
-.h{font-family:var(--display);font-stretch:75%;font-weight:800;line-height:.92;text-transform:uppercase;margin:0;text-wrap:balance}
+.h{font-family:var(--display);font-weight:500;letter-spacing:-.015em;line-height:1.04;margin:0;text-wrap:balance}
 .hl{color:var(--signal)}
 .btn{display:inline-flex;align-items:center;gap:12px;min-height:56px;padding:0 28px;border-radius:6px;background:var(--signal);color:var(--ink);font-weight:700;font-size:17px;text-decoration:none;transition:background .2s}
 .btn:hover{background:var(--signal-2)}
@@ -68,7 +68,7 @@ a{color:inherit}
 .nav img{height:30px;width:auto}
 .nav a.link{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--soft-d)}
 .hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.55fr);gap:clamp(28px,5vw,72px);align-items:end;padding-block:clamp(32px,6vw,72px) 0}
-.hero .h{font-size:clamp(48px,6.6vw,104px);color:#fff;margin-top:18px}
+.hero .h{font-size:clamp(44px,5.6vw,88px);color:#fff;margin-top:18px}
 .hero p{font-size:clamp(18px,1.6vw,21px);color:var(--soft-d);max-width:34em;margin:22px 0 0}
 .hero p strong{color:#fff}
 .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 clamp(32px,6vw,72px)}
@@ -76,7 +76,7 @@ a{color:inherit}
 .hero figure img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:8px 8px 0 0}
 .creds{border-top:1px solid var(--line-d);display:grid;grid-template-columns:repeat(4,1fr)}
 .creds div{padding:20px 16px 22px 0;font-size:14px;color:var(--muted-d);line-height:1.4}
-.creds b{display:block;font-family:var(--display);font-stretch:75%;font-weight:800;font-size:30px;color:#fff;text-transform:uppercase;line-height:1}
+.creds b{display:block;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:30px;color:#fff;line-height:1.08}
 
 /* mentoria */
 .mentoria{padding-block:clamp(64px,9vw,120px)}
@@ -86,7 +86,7 @@ a{color:inherit}
 .card p{color:var(--soft-d);margin:0 0 26px;max-width:30em}
 .card img{width:100%;height:100%;object-fit:cover;min-height:280px}
 .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 30px;padding:18px 0;border-block:1px solid var(--line-d)}
-.nums b{display:block;white-space:nowrap;font-family:var(--display);font-stretch:75%;font-weight:800;font-size:clamp(30px,3.4vw,44px);color:var(--signal);line-height:1}
+.nums b{display:block;white-space:nowrap;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:clamp(30px,3.4vw,44px);color:var(--signal);line-height:1.08}
 .nums span{font-size:13px;color:var(--muted-d);line-height:1.35;display:block;margin-top:6px}
 .note{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-d);margin-top:14px}
 
@@ -99,7 +99,7 @@ a{color:inherit}
 .tile img{aspect-ratio:16/10;object-fit:cover;width:100%}
 .tile .in{padding:22px;display:flex;flex-direction:column;gap:8px;flex:1}
 .tile .k{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a5a00}
-.tile h3{margin:0;font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:28px;line-height:1}
+.tile h3{margin:0;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:28px;line-height:1.08}
 .tile p{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
 .cols3{grid-template-columns:repeat(3,1fr)}
 .tile .ph{position:relative}
@@ -150,7 +150,7 @@ a{color:inherit}
 .sform .fine{grid-column:1/-1;margin:0;font-size:12.5px;line-height:1.45;color:#3b2a00}
 .sform .hp{position:absolute;left:-9999px}
 .sok{background:var(--ink);color:#fff;border-radius:8px;padding:22px}
-.sok strong{display:block;font-family:var(--display);font-stretch:75%;font-weight:800;font-size:30px;text-transform:uppercase;color:var(--signal);line-height:1;margin-bottom:6px}
+.sok strong{display:block;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:30px;color:var(--signal);line-height:1.08;margin-bottom:6px}
 /* grupo de WhatsApp */
 .wa{margin-top:20px;background:var(--ink);color:#fff;border-radius:10px;padding:clamp(24px,3.5vw,40px);display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
 .wa .h{font-size:clamp(30px,3.6vw,48px)}
@@ -174,7 +174,7 @@ a{color:inherit}
 .co:hover{border-color:var(--signal);transform:translateY(-3px);background:rgba(255,255,255,.06)}
 .co .lg{height:64px;display:flex;align-items:center}
 .co .lg img{max-height:44px;max-width:180px;width:auto;height:auto}
-.co .wm{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:34px;line-height:.9;text-transform:uppercase;letter-spacing:.01em}
+.co .wm{font-family:var(--display);font-weight:500;font-size:34px;line-height:1.04;letter-spacing:.01em}
 .co .wm small{display:block;font-size:15px;letter-spacing:.32em;font-weight:600;color:var(--soft-d)}
 .co p{margin:0;font-size:15px;line-height:1.5;color:var(--soft-d)}
 .co .k{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal)}
@@ -187,10 +187,10 @@ a{color:inherit}
 .mission .pn{position:relative;padding:28px 26px;display:flex;flex-direction:column;justify-content:flex-end;min-height:220px;background:radial-gradient(120% 90% at 10% 100%,rgba(108,171,221,.35),transparent 60%),linear-gradient(180deg,#0E1424,#0A0D1A);background-color:#0E1424}
 .mission .pn::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:44px 44px}
 .mission .pn span{position:relative;font-family:var(--mono);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#9CC9EE}
-.mission .pn b{position:relative;font-family:var(--display);font-stretch:75%;font-weight:800;font-style:italic;font-size:clamp(46px,6vw,76px);line-height:.95;text-transform:uppercase;color:#fff;margin-top:6px}
+.mission .pn b{position:relative;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-style:italic;font-size:clamp(46px,6vw,76px);line-height:1.04;color:#fff;margin-top:6px}
 .mission .tx{padding:28px 26px;display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,.03)}
 .mission .badge{align-self:flex-start;font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--signal);border:1.5px solid var(--signal);border-radius:999px;padding:6px 14px}
-.mission h3{margin:4px 0 0;font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:clamp(28px,3vw,40px);line-height:1}
+.mission h3{margin:4px 0 0;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:clamp(28px,3vw,40px);line-height:1.08}
 .mission p{margin:0;color:var(--soft-d);font-size:15.5px;line-height:1.55;max-width:44em}
 .mission .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
 .mission .tags i{font-style:normal;font-size:13px;border:1px solid var(--line-d);border-radius:999px;padding:6px 12px;color:#fff}
@@ -205,10 +205,10 @@ a{color:inherit}
 .ev{display:grid;grid-template-columns:auto 1fr;gap:18px;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:22px;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s}
 .ev:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(10,13,26,.1)}
 .ev .dt{width:68px;text-align:center;background:var(--ink);color:#fff;border-radius:8px;padding:10px 6px;align-self:start}
-.ev .dt b{display:block;font-family:var(--display);font-stretch:75%;font-weight:800;font-size:34px;line-height:1}
+.ev .dt b{display:block;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:34px;line-height:1.08}
 .ev .dt span{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal)}
 .ev .dt.tbd b{font-size:20px;line-height:1.1;padding:4px 0}
-.ev h3{margin:0 0 6px;font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:26px;line-height:1}
+.ev h3{margin:0 0 6px;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:26px;line-height:1.08}
 .ev .meta{font-size:14px;color:var(--muted);margin:0 0 10px}
 .ev .role{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#8a5a00;background:#FFF3DA;border-radius:999px;padding:5px 10px}
 .ev .go{display:block;margin-top:12px;font-weight:700;font-size:14px}
@@ -221,7 +221,7 @@ a{color:inherit}
 .palcos li{border-bottom:1px solid var(--line);padding:18px 18px 18px 0}
 .palcos a{display:block;color:inherit;text-decoration:none}
 .palcos .pk{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#8a5a00;margin-bottom:6px}
-.palcos b{display:block;font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:22px;line-height:1.05}
+.palcos b{display:block;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:22px;line-height:1.05}
 .palcos .pr{display:block;font-size:14px;color:var(--muted);margin-top:6px;line-height:1.4}
 .palcos a:hover b{color:#C27C0E}
 .gal{display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:12px;margin-top:28px}
@@ -241,7 +241,7 @@ a{color:inherit}
 .iform button{grid-column:1/-1;min-height:56px;border:0;border-radius:6px;background:var(--signal);color:var(--ink);font:inherit;font-weight:700;font-size:17px;cursor:pointer}
 .iform .hp{position:absolute;left:-9999px}
 .iok{background:#121729;border-radius:8px;padding:22px}
-.iok strong{display:block;font-family:var(--display);font-stretch:75%;font-weight:800;font-size:30px;text-transform:uppercase;color:var(--signal);margin-bottom:6px}
+.iok strong{display:block;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:30px;color:var(--signal);margin-bottom:6px}
 @media (max-width:1000px){.palcos{grid-template-columns:1fr 1fr}.agenda{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.gal img{height:160px}.invite{grid-template-columns:1fr}}
 @media (max-width:560px){.iform{grid-template-columns:1fr}}
 
@@ -279,7 +279,7 @@ footer a:hover{color:var(--signal)}
       <div>
         <span class="eyebrow">Comunicação · relacionamento · negócios</span>
         <h1 class="h">Autoridade que vira <span class="hl">fluxo de caixa.</span></h1>
-        <p>Sou <strong>Lito Aguiar</strong>. Há 28 anos transformo marketing e vendas em resultado, no Brasil e no exterior. Apresento o <strong>No Fim do Dia</strong>, no ND+ do Grupo ND, e criei o <strong>Pantech</strong>, da Jovem Pan.</p>
+        <p>Sou <strong>Lito Aguiar</strong>. Trabalho com marketing e vendas há 28 anos, com projetos no Brasil e fora dele. Apresento o <strong>No Fim do Dia</strong>, no ND+ do Grupo ND, e criei o <strong>Pantech</strong>, da Jovem Pan.</p>
         <div class="actions">
           <a class="btn" href="/mentoria/#agendar">Conhecer a mentoria <span aria-hidden="true">→</span></a>
           <a class="btn ghost" href="/news/">Ler a newsletter</a>
@@ -302,7 +302,7 @@ footer a:hover{color:var(--signal)}
       <div class="txt">
         <span class="eyebrow" style="color:var(--signal)">Mentoria · turma fundadora</span>
         <h2 class="h">Fluxo de <span class="hl">Autoridade</span></h2>
-        <p>Seis meses, comigo, para fundadores e diretores que já têm resultado mas aparecem menos do que o tamanho da empresa. O mesmo método que transformou o podcast em máquina de vendas.</p>
+        <p>Seis meses de mentoria individual para fundadores e diretores cuja empresa já é maior do que a presença deles no mercado. Ensino o mesmo processo que usei no meu podcast.</p>
         <div class="nums">
           <div><b>112</b><span>empresários na cadeira do podcast</span></div>
           <div><b>62%</b><span>viraram clientes das minhas empresas</span></div>
@@ -322,7 +322,7 @@ footer a:hover{color:var(--signal)}
       <div>
         <span class="tag">Podcast · ND+ / Grupo ND · Record</span>
         <h2 class="nfd-logo" id="nfd-t"><img src="/img/nfd-logo.png" alt="No Fim do Dia: podcast, negócios e tecnologia" width="800" height="516"></h2>
-        <p>Negócios e tecnologia com quem decide em Santa Catarina e no Brasil. Criado e apresentado por mim no portal ND+, do Grupo ND, afiliado à Record.</p>
+        <p>Conversas sobre negócios e tecnologia com empresários e executivos de Santa Catarina e de outros estados. Criei e apresento o programa no portal ND+, do Grupo ND, afiliado à Record.</p>
         <a class="btn" href="https://www.youtube.com/@NoFimDoDia.oficial?sub_confirmation=1" target="_blank" rel="noopener">Inscrever-se no canal <span aria-hidden="true">→</span></a>
       </div>
       <figure class="nfd-art"><img src="/img/nfd-lito.webp" alt="Lito Aguiar, apresentador do No Fim do Dia" width="1000" height="1100" loading="lazy"></figure>
@@ -330,15 +330,15 @@ footer a:hover{color:var(--signal)}
     <span class="tag" style="margin-bottom:16px">Últimos episódios</span>
     <div class="eps" id="nfd-eps" style="margin-top:16px">
       <a class="ep" href="https://www.youtube.com/watch?v=u9GU8H3IfYA" target="_blank" rel="noopener">
-        <div class="th"><img src="https://i.ytimg.com/vi/u9GU8H3IfYA/maxresdefault.jpg" onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/u9GU8H3IfYA/mqdefault.jpg\'" alt="" loading="lazy" width="480" height="270"></div>
+        <div class="th"><img src="https://i.ytimg.com/vi/u9GU8H3IfYA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/u9GU8H3IfYA/mqdefault.jpg'" alt="" loading="lazy" width="480" height="270"></div>
         <div class="in"><span class="d">16.10.2026</span><h3>FIM DA EDUCAÇÃO TRADICIONAL? A PIB cria Empreendedores MILIONÁRIOS aos 18 anos</h3><span class="g">Mohamad (PIB)</span></div>
       </a>
       <a class="ep" href="https://www.youtube.com/watch?v=dTyfHdxoxI4" target="_blank" rel="noopener">
-        <div class="th"><img src="https://i.ytimg.com/vi/dTyfHdxoxI4/maxresdefault.jpg" onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/dTyfHdxoxI4/mqdefault.jpg\'" alt="" loading="lazy" width="480" height="270"></div>
+        <div class="th"><img src="https://i.ytimg.com/vi/dTyfHdxoxI4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/dTyfHdxoxI4/mqdefault.jpg'" alt="" loading="lazy" width="480" height="270"></div>
         <div class="in"><span class="d">08.10.2026</span><h3>Como um bônus de R$400 salvou essa empresa e a levou para o mundo</h3><span class="g">Diego (ASAAS) &amp; Tyara (Molde.me)</span></div>
       </a>
       <a class="ep" href="https://www.youtube.com/watch?v=GI5kQi1WTf8" target="_blank" rel="noopener">
-        <div class="th"><img src="https://i.ytimg.com/vi/GI5kQi1WTf8/maxresdefault.jpg" onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/GI5kQi1WTf8/mqdefault.jpg\'" alt="" loading="lazy" width="480" height="270"></div>
+        <div class="th"><img src="https://i.ytimg.com/vi/GI5kQi1WTf8/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/GI5kQi1WTf8/mqdefault.jpg'" alt="" loading="lazy" width="480" height="270"></div>
         <div class="in"><span class="d">16.09.2026</span><h3>A IA está te deixando PIOR (e mais rápido): O Futuro das Vendas</h3><span class="g">Theo Orosco</span></div>
       </a>
     </div>
@@ -349,7 +349,7 @@ footer a:hover{color:var(--signal)}
   <div class="wrap">
     <span class="eyebrow">Na estrada</span>
     <h2 class="h" id="ev-t">Onde vou <span style="color:#C27C0E">estar</span></h2>
-    <p class="lead">Eventos de negócios, tecnologia e inovação onde estou presente: gravando o No Fim do Dia ao vivo, entrevistando quem decide e ajudando a divulgar o ecossistema.</p>
+    <p class="lead">Eventos de negócios e tecnologia em que vou estar como palestrante, painelista ou gravando o No Fim do Dia ao vivo.</p>
     <div class="agenda" id="agenda">
       <a class="ev" data-fim="2026-12-03" href="https://luma.com/3rzt6042" target="_blank" rel="noopener">
         <div class="dt"><b>03</b><span>dez</span></div>
@@ -378,7 +378,7 @@ footer a:hover{color:var(--signal)}
     <div class="rec-h">Palcos e estúdios por onde passei</div>
     <ul class="palcos">
       <li><a href="https://www.instagram.com/p/DbbYs3wxIux/" target="_blank" rel="noopener"><span class="pk">Jul 2026 · Realizador</span><b>Digital Leaders by Hublue</b><span class="pr">112 C-levels na RD Station, com TOTVS, Google, Grupo ND, Atomic Group, ACATE, Sebrae e Governo de SC. Podcast ao vivo com Alberto Oppenheimer (Google) · ver aftermovie →</span></a></li>
-      <li><span class="pk">Ago 2026 · Florianópolis</span><b>Startup Summit 2026</b><span class="pr">Stand do No Fim do Dia: episódios gravados ao vivo e marcas conectadas ao podcast</span></li>
+      <li><span class="pk">Ago 2026 · Florianópolis</span><b>Startup Summit 2026</b><span class="pr">Stand do No Fim do Dia, com episódios gravados durante o evento</span></li>
       <li><a href="https://southtechsummit.com.br/" target="_blank" rel="noopener"><span class="pk">Out 2026 · Criciúma</span><b>South Tech Summit 2026</b><span class="pr">Host e painelista, com o No Fim do Dia ao vivo: Evandro Pires, AWS Serverless Hero</span></a></li>
       <li><a href="https://luma.com/xeoof2x6" target="_blank" rel="noopener"><span class="pk">Nov 2026 · Joinville</span><b>Armazém Cloud · Decolando para o Futuro</b><span class="pr">Painelista na mesa-redonda sobre o futuro da nuvem</span></a></li>
       <li><a href="https://www.sympla.com.br/evento/conexao-indtech-2026/3598187" target="_blank" rel="noopener"><span class="pk">Nov 2026 · Joinville</span><b>Conexão Indtech 2026</b><span class="pr">Painelista no encontro de indústria, tecnologia e inovação</span></a></li>
@@ -398,8 +398,8 @@ footer a:hover{color:var(--signal)}
       <div>
         <span class="eyebrow" style="color:var(--signal)">Para organizadores</span>
         <h2 class="h">Leve o Lito para o seu evento</h2>
-        <p>Palco, estúdio e audiência trabalhando a favor do seu evento, antes, durante e depois.</p>
-        <ul><li>Palestra sobre autoridade, marketing e vendas</li><li>Mediação de painéis com quem decide</li><li>No Fim do Dia gravado ao vivo no seu evento</li><li>Cobertura com entrevistas e divulgação</li></ul>
+        <p>Posso palestrar, mediar um painel ou gravar o No Fim do Dia no seu evento, e divulgo a participação nos meus canais.</p>
+        <ul><li>Palestra sobre autoridade, marketing e vendas</li><li>Mediação de painéis</li><li>No Fim do Dia gravado ao vivo no seu evento</li><li>Cobertura com entrevistas e divulgação</li></ul>
         <p style="margin:16px 0 0"><a href="/palestrante/" style="color:var(--signal);font-weight:700">Ver palestras, palcos e teaser →</a></p>
       </div>
       <div>
@@ -425,19 +425,19 @@ footer a:hover{color:var(--signal)}
 <section class="emp" id="empresas" aria-labelledby="emp-t">
   <div class="wrap">
     <span class="eyebrow">Empresas</span>
-    <h2 class="h" id="emp-t">Onde o método roda <span class="hl">todo dia.</span></h2>
-    <p class="lead">O que eu ensino na mentoria e defendo no podcast é o que aplico nas minhas empresas e projetos, em dados, marketing, tecnologia, esporte e entretenimento.</p>
+    <h2 class="h" id="emp-t">Minhas <span class="hl">empresas</span> e projetos</h2>
+    <p class="lead">O que ensino na mentoria e no palco eu aplico aqui, em empresas de dados, marketing, tecnologia, esporte e entretenimento.</p>
     <div class="emp-grid">
       <a class="co" href="https://hublue.com.br" target="_blank" rel="noopener">
         <div class="lg"><img src="/img/empresas/hublue.svg" alt="Hublue" loading="lazy" style="max-height:34px"></div>
         <span class="k">Dados · marketing · vendas</span>
-        <p>Hub de inteligência em dados, marketing e vendas que conecta estratégia, pessoas e oportunidades de negócio.</p>
+        <p>Inteligência de dados aplicada a marketing e vendas. Realiza o Digital Leaders, que reuniu 112 C-levels em 2026.</p>
         <span class="go">hublue.com.br →</span>
       </a>
       <a class="co" href="https://framebusiness.com.br" target="_blank" rel="noopener">
         <div class="lg"><img src="/img/empresas/frame-business.svg" alt="Frame Business" loading="lazy" style="max-height:46px"></div>
         <span class="k">Marketing digital</span>
-        <p>Agência de marketing digital focada em performance: mídia, conteúdo e tecnologia a serviço de resultado comercial.</p>
+        <p>Agência de marketing digital focada em mídia paga e em conteúdo que gera venda.</p>
         <span class="go">framebusiness.com.br →</span>
       </a>
       <a class="co" href="https://axonictec.com.br" target="_blank" rel="noopener">
@@ -471,7 +471,7 @@ footer a:hover{color:var(--signal)}
         <span class="badge">Em breve</span>
         <span class="k" style="font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9CC9EE">Missão empresarial · LTX Global</span>
         <h3>Missão Empresarial Manchester City</h3>
-        <p>Uma imersão para grandes empresários no Manchester City como organização de alta performance: gestão, cultura e negócios de um dos clubes mais vencedores do mundo. Inclui visitas a empresas de referência global e um jogo no estádio.</p>
+        <p>Uma imersão para empresários dentro do Manchester City, para ver de perto como o clube cuida de gestão, cultura e negócios. Inclui visitas a empresas de tecnologia da região e um jogo no estádio.</p>
         <div class="tags"><i>Gestão e liderança</i><i>Visitas a empresas</i><i>Jogo no estádio</i></div>
         <span class="go">Quero saber primeiro →</span>
       </div>
@@ -490,11 +490,11 @@ footer a:hover{color:var(--signal)}
       </a>
       <a class="tile col" href="https://economiasc.com/author/litoaguiar/" target="_blank" rel="noopener">
         <div class="ph"><img src="/img/colunas/nfd-lancamento.jpg" alt="Lito Aguiar no lançamento do No Fim do Dia" loading="lazy"><span class="badge"><img src="/mentoria/img/midia-economiasc.png" alt="Economia SC"></span></div>
-        <div class="in"><span class="k">Colunista</span><h3>Economia SC</h3><p>Planejamento, experiência do cliente e decisões de crescimento para empresas catarinenses.</p><span class="go">Ler as colunas →</span></div>
+        <div class="in"><span class="k">Colunista</span><h3>Economia SC</h3><p>Planejamento, atendimento ao cliente e crescimento de empresas catarinenses.</p><span class="go">Ler as colunas →</span></div>
       </a>
       <a class="tile col" href="https://acontecendoaqui.com.br/colunista/lito-aguiar/" target="_blank" rel="noopener">
         <div class="ph"><img src="/img/colunas/palco-mede.jpg" alt="Lito Aguiar no palco: se você não mede, não pode melhorar" loading="lazy"><span class="badge"><img src="/mentoria/img/midia-acontecendoaqui.png" alt="AcontecendoAqui"></span></div>
-        <div class="in"><span class="k">Coluna Inovação e Crescimento</span><h3>AcontecendoAqui</h3><p>Inteligência artificial, estratégia B2B e o que separa crescimento de ineficiência.</p><span class="go">Ler as colunas →</span></div>
+        <div class="in"><span class="k">Coluna Inovação e Crescimento</span><h3>AcontecendoAqui</h3><p>Inteligência artificial aplicada a vendas e gestão em empresas B2B.</p><span class="go">Ler as colunas →</span></div>
       </a>
     </div>
 
@@ -502,7 +502,7 @@ footer a:hover{color:var(--signal)}
       <div>
         <span class="eyebrow" style="color:var(--ink)">Newsletter · toda terça, 7h30</span>
         <h2 class="h" style="margin-top:10px">Scale News.</h2>
-        <p>Negócios, marketing e vendas sem ruído: o que mudou no mercado e o que fazer com isso. <a href="/news/">Ler as edições →</a></p>
+        <p>O que mudou em negócios, marketing e vendas na semana, e o que eu faria com isso. <a href="/news/">Ler as edições →</a></p>
       </div>
       <div>
         <form class="sform" id="form-news" novalidate>
@@ -521,7 +521,7 @@ footer a:hover{color:var(--signal)}
       <div>
         <span class="eyebrow" style="color:#25D366">Grupo privado · por convite</span>
         <h2 class="h" style="margin-top:10px">O que não cabe na coluna vai para o grupo.</h2>
-        <p>Bastidores dos episódios antes de irem ao ar, os dados por trás das análises e conversa direta comigo. Grupo pequeno, sem spam.</p>
+        <p>Bastidores dos episódios antes de irem ao ar, os números que uso nas colunas e conversa direta comigo. Sem spam.</p>
       </div>
       <a class="btn" href="https://chat.whatsapp.com/DhCviqab0iN9zEZgybRimS" target="_blank" rel="noopener" data-ga="grupo_whatsapp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg> Entrar no grupo</a>
     </div>

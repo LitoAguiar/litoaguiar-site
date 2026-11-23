@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@75..125,500..800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -38,7 +38,7 @@
   --paper:#F3F4F7; --white:#FFFFFF; --line:#DEE0E7;
   --text:#0E1222; --muted:#4A5068; --muted-d:rgba(255,255,255,.66); --soft-d:rgba(255,255,255,.84);
   --signal:#F5A524; --signal-2:#FFBA42;
-  --display:'Saira','Archivo Narrow','Arial Narrow',sans-serif;
+  --display:'Newsreader',Georgia,'Times New Roman',serif;
   --body:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
   --pad-x:clamp(20px,5vw,80px);
@@ -53,7 +53,7 @@ a{color:inherit}
 .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;color:var(--muted)}
 .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--signal);flex:none}
 .dk .eyebrow{color:var(--signal)}
-.h{font-family:var(--display);font-stretch:75%;font-weight:800;line-height:.92;text-transform:uppercase;margin:0;text-wrap:balance}
+.h{font-family:var(--display);font-weight:500;letter-spacing:-.015em;line-height:1.04;margin:0;text-wrap:balance}
 .hl{color:var(--signal)}
 .btn{display:inline-flex;align-items:center;gap:12px;min-height:56px;padding:0 28px;border-radius:6px;background:var(--signal);color:var(--ink);font-weight:700;font-size:17px;text-decoration:none;transition:background .2s}
 .btn:hover{background:var(--signal-2)}
@@ -73,7 +73,7 @@ section{padding-block:clamp(64px,9vw,112px)}
 .nav .links{display:flex;gap:20px}
 .hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:clamp(28px,5vw,64px);align-items:stretch;padding-top:clamp(32px,6vw,72px);padding-bottom:clamp(32px,5vw,56px)}
 .hero .eyebrow{color:var(--signal)}
-.hero .h{font-size:clamp(48px,5.6vw,92px);color:#fff;margin-top:18px}
+.hero .h{font-size:clamp(44px,5.2vw,84px);color:#fff;margin-top:18px}
 .hero p{font-size:clamp(18px,1.6vw,21px);color:var(--soft-d);max-width:34em;margin:22px 0 0}
 .hero p strong{color:#fff}
 .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 0}
@@ -81,7 +81,7 @@ section{padding-block:clamp(64px,9vw,112px)}
 .hero figure img{width:100%;height:100%;object-fit:cover;object-position:30% 35%;border-radius:10px}
 .creds{border-top:1px solid var(--line-d);display:grid;grid-template-columns:repeat(4,1fr)}
 .creds div{padding:20px 16px 22px 0;font-size:14px;color:var(--muted-d);line-height:1.4}
-.creds b{display:block;font-family:var(--display);font-stretch:75%;font-weight:800;font-size:34px;color:#fff;text-transform:uppercase;line-height:1}
+.creds b{display:block;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:34px;color:#fff;line-height:1.08}
 .creds b.hl{color:var(--signal)}
 .media{display:flex;flex-wrap:wrap;align-items:center;gap:20px 40px;padding:22px 0 26px;border-top:1px solid var(--line-d)}
 .media span{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-d)}
@@ -97,13 +97,13 @@ section{padding-block:clamp(64px,9vw,112px)}
 .talks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .talk{min-width:0;background:var(--white);border:1px solid var(--line);border-top:4px solid var(--signal);border-radius:10px;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:12px}
 .talk .k{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a5a00}
-.talk h3{overflow-wrap:break-word;margin:0;font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:clamp(32px,3.4vw,44px);line-height:.95}
+.talk h3{overflow-wrap:break-word;margin:0;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:clamp(32px,3.4vw,44px);line-height:1.04}
 .talk p{margin:0;color:var(--muted)}
 .method{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
 .method div{border:1px solid var(--line);border-radius:6px;padding:12px}
 .method div.k3{border-color:var(--signal);background:#FFF7E6}
 .method small{font-family:var(--mono);font-size:12px;color:#8a5a00}
-.method b{display:block;font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:clamp(14px,1.7vw,20px);line-height:1;overflow-wrap:anywhere}
+.method b{display:block;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:clamp(14px,1.7vw,20px);line-height:1.08;overflow-wrap:anywhere}
 .method div{min-width:0}
 .leva{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-size:15px;color:var(--muted)}
 .leva strong{color:var(--text)}
@@ -124,7 +124,7 @@ section{padding-block:clamp(64px,9vw,112px)}
 .gal img{width:100%;height:100%;object-fit:cover}
 .gal figcaption{position:absolute;left:12px;bottom:12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:#fff;border-radius:999px;padding:5px 11px}
 .destaque{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 14px;margin:34px 0 14px}
-.destaque b{font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:28px;line-height:1}
+.destaque b{font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:28px;line-height:1.08}
 .destaque span{font-size:15px;color:var(--muted)}
 .gal2{display:grid;grid-template-columns:1fr 1.9fr 1fr;height:420px;gap:12px}
 .gal2 figure{margin:0;position:relative;border-radius:8px;overflow:hidden}
@@ -138,7 +138,7 @@ section{padding-block:clamp(64px,9vw,112px)}
 .mcard img.ph{width:100%;aspect-ratio:16/9;object-fit:cover}
 .mcard .in{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1}
 .mcard .k{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal)}
-.mcard h3{margin:0;font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:40px;line-height:.95}
+.mcard h3{margin:0;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:40px;line-height:1.04}
 .mcard p{margin:0;color:var(--soft-d);font-size:15.5px}
 .logos{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:auto;padding-top:10px}
 .logos img{height:30px;width:auto}
@@ -152,7 +152,7 @@ section{padding-block:clamp(64px,9vw,112px)}
 .palcos li{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:20px}
 .palcos .pk{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#8a5a00;background:#FFF3DA;border-radius:999px;padding:5px 10px;margin-bottom:10px}
 .palcos .pk.live{background:#111;color:#F7C843}
-.palcos b{display:block;font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:26px;line-height:1}
+.palcos b{display:block;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:26px;line-height:1.08}
 .palcos span.pr{display:block;font-size:14px;color:var(--muted);margin-top:6px;line-height:1.4}
 
 /* internacional e empresas */
@@ -160,7 +160,7 @@ section{padding-block:clamp(64px,9vw,112px)}
 .club{display:flex;align-items:center;gap:22px;border:1.5px solid var(--signal);border-radius:10px;padding:24px;background:rgba(255,255,255,.03)}
 .club img{height:84px;width:auto;flex:none}
 .club .k{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal)}
-.club h3{margin:6px 0 6px;font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:34px;line-height:.95}
+.club h3{margin:6px 0 6px;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:34px;line-height:1.04}
 .club p{margin:0;font-size:15px;color:var(--soft-d)}
 .brands{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;align-items:center;justify-items:center;margin-top:36px;padding-top:32px;border-top:1px solid var(--line-d)}
 .brands img{max-height:40px;max-width:150px;width:auto;height:auto}
@@ -182,7 +182,7 @@ section{padding-block:clamp(64px,9vw,112px)}
 .iform button{grid-column:1/-1;min-height:56px;border:0;border-radius:6px;background:var(--signal);color:var(--ink);font:inherit;font-weight:700;font-size:17px;cursor:pointer}
 .iform .hp{position:absolute;left:-9999px}
 .iok{background:#121729;border-radius:8px;padding:22px}
-.iok strong{display:block;font-family:var(--display);font-stretch:75%;font-weight:800;font-size:30px;text-transform:uppercase;color:var(--signal);margin-bottom:6px}
+.iok strong{display:block;font-family:var(--display);font-weight:500;letter-spacing:-.015em;font-size:30px;color:var(--signal);margin-bottom:6px}
 
 footer{background:var(--ink);color:var(--muted-d);padding-block:36px;font-size:14px;border-top:1px solid var(--line-d)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:16px 28px;justify-content:space-between;align-items:center}
@@ -228,7 +228,7 @@ footer a:hover{color:var(--signal)}
       <div>
         <span class="eyebrow">Palestrante · painelista · host</span>
         <h1 class="h">Autoridade que vira <span class="hl">fluxo de caixa.</span></h1>
-        <p>Sou <strong>Lito Aguiar</strong>, empresário, comunicador e professor universitário. Há 28 anos transformo marketing, vendas e relacionamento em resultado, no Brasil e no exterior. No palco, não trago teoria de slide: trago o que roda no caixa das minhas empresas.</p>
+        <p>Sou <strong>Lito Aguiar</strong>, empresário, comunicador e professor universitário. Trabalho com marketing, vendas e relacionamento há 28 anos, com projetos no Brasil e fora dele. No palco, conto o que aplico nas minhas empresas, com os números de cada caso.</p>
         <div class="actions">
           <a class="btn" href="#convite">Convidar para o seu evento <span aria-hidden="true">→</span></a>
           <a class="btn ghost" href="#teaser">Assistir ao teaser</a>
@@ -266,24 +266,24 @@ footer a:hover{color:var(--signal)}
 <section id="palestras" aria-labelledby="pl-t" style="padding-top:0">
   <div class="wrap">
     <span class="eyebrow">Palestras</span>
-    <h2 class="h sec-h" id="pl-t">Dois temas. <span style="color:#C27C0E">Um método.</span></h2>
+    <h2 class="h sec-h" id="pl-t">Duas <span style="color:#C27C0E">palestras</span></h2>
     <div class="talks">
       <article class="talk">
         <span class="k">Palestra 01 · principal</span>
         <h3>Autoridade que vira <span style="color:#C27C0E">fluxo de caixa</span></h3>
-        <p>Produto e preço viraram commodity. O que decide a venda é a confiança que o líder constrói antes dela acontecer. Mas a maioria trata visibilidade como vaidade e separa marketing de vendas: muito conteúdo, pouco relacionamento e quase nenhuma venda.</p>
+        <p>Quando produto e preço ficam parecidos, o cliente compra de quem já conhece e em quem confia. Mesmo assim, muita empresa trata a presença do fundador como vaidade, mantém marketing e vendas separados e produz conteúdo que não vira venda.</p>
         <div class="method"><div><small>01</small><b>Aparecer</b></div><div><small>02</small><b>Relacionar</b></div><div class="k3"><small>03</small><b>Converter</b></div></div>
-        <p class="leva"><strong>A plateia leva:</strong> por que o fundador é o principal canal comercial da empresa, como usar podcast, eventos e IA para abrir portas com quem decide e como medir se a autoridade gera negócio, não só curtidas.</p>
+        <p class="leva"><strong>A plateia leva:</strong> por que o fundador é o principal canal comercial da empresa, como usar podcast, eventos e IA para chegar a quem compra e como medir se essa presença está gerando negócio.</p>
       </article>
       <article class="talk">
         <span class="k">Palestra 02</span>
         <h3>Podcast como <span style="color:#C27C0E">canal de aquisição</span></h3>
-        <p>De um podcast gravado no fundo de casa a um programa da Jovem Pan e a uma máquina de vendas: 62% dos empresários entrevistados viraram clientes, cerca de R$ 1 milhão em vendas.</p>
+        <p>Comecei gravando no fundo de casa, levei o podcast para a Jovem Pan e usei as entrevistas como canal de vendas: 62% dos empresários entrevistados viraram clientes, cerca de R$ 1 milhão em vendas.</p>
         <p class="leva"><strong>A plateia leva:</strong> como escolher convidados como lista de prospecção, conduzir a conversa como relacionamento e converter depois do episódio.</p>
       </article>
     </div>
     <div class="info">
-      <div class="box"><span class="k">Formatos</span><ul><li>Palestra presencial (60 a 90 min) ou online</li><li>Painéis e mediação com quem decide</li><li>No Fim do Dia gravado ao vivo no evento</li><li>Workshop de podcast e autoridade</li></ul></div>
+      <div class="box"><span class="k">Formatos</span><ul><li>Palestra presencial (60 a 90 min) ou online</li><li>Painéis e mediação</li><li>No Fim do Dia gravado ao vivo no evento</li><li>Workshop de podcast e autoridade</li></ul></div>
       <div class="box"><span class="k">Para quem</span><p>Empresários, fundadores e diretores de tecnologia, serviços, indústria e varejo, e equipes de marketing, vendas e atendimento. Ideal para convenções de vendas, associações empresariais e eventos de inovação.</p></div>
       <div class="box"><span class="k">Temas</span><div class="tags"><i class="on">Vendas e Atendimento</i><i class="on">Marketing</i><i class="on">Comunicação</i><i>Branding</i><i>Marketing Digital</i><i>Empreendedorismo</i></div></div>
     </div>
@@ -314,7 +314,7 @@ footer a:hover{color:var(--signal)}
 <section class="dk" id="midia" aria-labelledby="md-t">
   <div class="wrap">
     <span class="eyebrow">Mídia</span>
-    <h2 class="h sec-h" id="md-t">O comunicador que <span class="hl">entrevista quem decide</span></h2>
+    <h2 class="h sec-h" id="md-t">Dois podcasts e <span class="hl">três colunas</span></h2>
     <div class="mrow">
       <article class="mcard">
         <img class="ph bw" src="/mentoria/img/g2-pantech-estudio.jpg" alt="Lito no estúdio do Pantech" loading="lazy" style="object-position:50% 40%">
@@ -360,7 +360,7 @@ footer a:hover{color:var(--signal)}
 <section class="dk" aria-labelledby="it-t">
   <div class="wrap">
     <span class="eyebrow">Projetos internacionais</span>
-    <h2 class="h sec-h" id="it-t">Onde o método roda <span class="hl">todo dia.</span></h2>
+    <h2 class="h sec-h" id="it-t">Marcas <span class="hl">internacionais</span></h2>
     <div class="intl">
       <div class="club"><img src="https://upload.wikimedia.org/wikipedia/en/f/f9/Atletico_Madrid_Logo_2024.svg" alt="Atlético de Madrid" loading="lazy"><div><span class="k">LTX Global</span><h3>Atlético de Madrid</h3><p>Football Experience: operação do programa no Brasil.</p></div></div>
       <div class="club"><img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg" alt="Manchester City" loading="lazy"><div><span class="k">LTX Global</span><h3>Manchester City</h3><p>Missão Empresarial Manchester City.</p></div></div>
@@ -382,8 +382,8 @@ footer a:hover{color:var(--signal)}
       <div>
         <span class="eyebrow">Para organizadores</span>
         <h2 class="h" id="cv-t">Leve o Lito para o seu evento</h2>
-        <p>Palco, estúdio e audiência trabalhando a favor do seu evento, antes, durante e depois.</p>
-        <ul><li>Palestra sobre autoridade, marketing e vendas</li><li>Painéis e mediação com quem decide</li><li>No Fim do Dia gravado ao vivo no seu evento</li><li>Cobertura com entrevistas e divulgação</li></ul>
+        <p>Posso palestrar, mediar um painel ou gravar o No Fim do Dia no seu evento, e divulgo a participação nos meus canais.</p>
+        <ul><li>Palestra sobre autoridade, marketing e vendas</li><li>Painéis e mediação</li><li>No Fim do Dia gravado ao vivo no seu evento</li><li>Cobertura com entrevistas e divulgação</li></ul>
       </div>
       <div>
         <form class="iform" id="form-convite" novalidate>
