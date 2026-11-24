@@ -16,8 +16,8 @@ const CANAL = 'UCxLeZ6P5umXqda9Ft58lVnw';
 // Ex.: 'PLxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' (o trecho depois de list= no link da playlist)
 const PLAYLIST = 'PLHCAkV8vz1fA'; // podcast "No Fim do Dia" (aba Podcasts do canal)
 const TTL = 21600;
-const QTD = 3;
-$cacheFile = __DIR__ . '/.nfd-cache-' . (PLAYLIST ?: 'v3') . '.json';
+const QTD = 6; // home: 6 no desktop, 3 no celular (CSS)
+$cacheFile = __DIR__ . '/.nfd-cache-' . (PLAYLIST ?: 'v3') . '-' . QTD . '.json';
 
 $cache = is_file($cacheFile) ? json_decode((string) file_get_contents($cacheFile), true) : null;
 if (!isset($_GET['atualizar']) && $cache && time() - ($cache['geradoEm'] ?? 0) < TTL) {
