@@ -12,9 +12,12 @@ header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: public, max-age=1800');
 
 const CANAL = 'UCxLeZ6P5umXqda9Ft58lVnw';
+// Playlist da aba Podcasts do canal (só episódios completos). Quando preenchida, é a ÚNICA fonte.
+// Ex.: 'PLxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' (o trecho depois de list= no link da playlist)
+const PLAYLIST = '';
 const TTL = 21600;
 const QTD = 3;
-$cacheFile = __DIR__ . '/.nfd-cache-v3.json';
+$cacheFile = __DIR__ . '/.nfd-cache-' . (PLAYLIST ?: 'v3') . '.json';
 
 $cache = is_file($cacheFile) ? json_decode((string) file_get_contents($cacheFile), true) : null;
 if (!isset($_GET['atualizar']) && $cache && time() - ($cache['geradoEm'] ?? 0) < TTL) {
@@ -32,7 +35,9 @@ function nfd_feed(string $qs): ?string {
 }
 
 // UC... → UULF...: playlist de uploads só com vídeos longos
-$xml = nfd_feed('playlist_id=UULF' . substr(CANAL, 2)) ?? nfd_feed('channel_id=' . CANAL);
+$xml = PLAYLIST !== ''
+  ? nfd_feed('playlist_id=' . PLAYLIST)
+  : (nfd_feed('playlist_id=UULF' . substr(CANAL, 2)) ?? nfd_feed('channel_id=' . CANAL));
 
 $eps = [];
 if ($xml && preg_match_all('#<entry>(.*?)</entry>#s', $xml, $m)) {
@@ -43,7 +48,7 @@ if ($xml && preg_match_all('#<entry>(.*?)</entry>#s', $xml, $m)) {
     $titulo = html_entity_decode($t[1] ?? '', ENT_QUOTES | ENT_HTML5, 'UTF-8');
     if (stripos($titulo, '#shorts') !== false || stripos($e, 'youtube.com/shorts/') !== false) continue;
     $partes = explode('|', $titulo, 2);
-    if (count($partes) < 2 || trim($partes[1]) === '') continue;
+    if (PLAYLIST === '' && (count($partes) < 2 || trim($partes[1]) === '')) continue;
     $eps[] = [
       'id' => $id[1],
       'titulo' => trim($partes[0]),
@@ -52,8 +57,9 @@ if ($xml && preg_match_all('#<entry>(.*?)</entry>#s', $xml, $m)) {
       'url' => 'https://www.youtube.com/watch?v=' . $id[1],
       'thumb' => 'https://i.ytimg.com/vi/' . $id[1] . '/maxresdefault.jpg',
     ];
-    if (count($eps) >= QTD) break;
   }
+  usort($eps, fn($x, $y) => strcmp($y['data'], $x['data']));
+  $eps = array_slice($eps, 0, QTD);
 }
 
 if ($eps) {
