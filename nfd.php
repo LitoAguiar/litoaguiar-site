@@ -14,7 +14,7 @@ header('Cache-Control: public, max-age=1800');
 const CANAL = 'UCxLeZ6P5umXqda9Ft58lVnw';
 // Playlist da aba Podcasts do canal (só episódios completos). Quando preenchida, é a ÚNICA fonte.
 // Ex.: 'PLxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' (o trecho depois de list= no link da playlist)
-const PLAYLIST = '';
+const PLAYLIST = 'PLHCAkV8vz1fA'; // podcast "No Fim do Dia" (aba Podcasts do canal)
 const TTL = 21600;
 const QTD = 3;
 $cacheFile = __DIR__ . '/.nfd-cache-' . (PLAYLIST ?: 'v3') . '.json';
