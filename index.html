@@ -88,6 +88,13 @@ a{color:inherit}
 .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 30px;padding:18px 0;border-block:1px solid var(--line-d)}
 .nums b{display:block;white-space:nowrap;font-family:var(--display);font-stretch:75%;font-weight:800;font-size:clamp(30px,3.4vw,44px);color:var(--signal);line-height:1}
 .nums span{font-size:13px;color:var(--muted-d);line-height:1.35;display:block;margin-top:6px}
+.oferta{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:10px}
+.oferta li{display:grid;grid-template-columns:110px 1fr;gap:12px;font-size:15px;line-height:1.4;color:var(--soft-d)}
+.oferta li b{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal);padding-top:2px}
+.oferta li strong{color:#fff}
+.card .actions2{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.card .more{color:#fff;font-weight:700;font-size:15px}
+@media (max-width:420px){.oferta li{grid-template-columns:1fr;gap:2px}}
 .note{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-d);margin-top:14px}
 
 /* conteúdo */
@@ -128,7 +135,7 @@ a{color:inherit}
 .ep{background:#111;color:#fff;border-radius:10px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
 .ep:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(60,35,0,.3)}
 .ep .th{position:relative}
-.ep .th img{aspect-ratio:16/9;object-fit:cover;width:100%}
+.ep .th img{aspect-ratio:16/9;object-fit:cover;width:100%;height:auto}
 .ep .th::after{content:"";position:absolute;inset:auto auto 12px 12px;width:44px;height:44px;border-radius:50%;background:var(--nfd) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%23111'/%3E%3C/svg%3E") center/22px no-repeat}
 .ep .in{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
 .ep .d{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--nfd)}
@@ -273,7 +280,7 @@ footer a:hover{color:var(--signal)}
   <div class="wrap">
     <div class="nav">
       <a href="/" aria-label="Lito Aguiar, página inicial"><img src="/mentoria/img/logo-lito-aguiar.png" alt="Lito Aguiar" width="148" height="30"></a>
-      <span class="navlinks" style="display:flex;gap:20px"><a class="link" href="/palestrante/">Palestras</a><a class="link" href="#no-fim-do-dia">No Fim do Dia</a><a class="link" href="#eventos">Eventos</a><a class="link" href="#empresas">Empresas</a><a class="link" href="/news/">Newsletter</a></span>
+      <span class="navlinks" style="display:flex;gap:20px"><a class="link" href="/mentoria/">Mentoria</a><a class="link" href="/palestrante/">Palestras</a><a class="link" href="#no-fim-do-dia">No Fim do Dia</a><a class="link" href="#eventos">Eventos</a><a class="link" href="#empresas">Empresas</a><a class="link" href="/news/">Newsletter</a></span>
     </div>
     <div class="hero">
       <div>
@@ -308,8 +315,13 @@ footer a:hover{color:var(--signal)}
           <div><b>62%</b><span>viraram clientes das minhas empresas</span></div>
           <div><b>R$ 1 mi</b><span>em vendas, aproximadamente</span></div>
         </div>
-        <a class="btn" href="/mentoria/#agendar">Agendar uma conversa <span aria-hidden="true">→</span></a>
-        <div class="note">30 minutos · 5 vagas na turma fundadora</div>
+        <ul class="oferta">
+          <li><b>Formato</b><span><strong>6 meses</strong> de mentoria individual, com <strong>12 encontros de 2 horas</strong> a cada 15 dias, online ou presencial em Florianópolis</span></li>
+          <li><b>Inclui</b><span>Acesso direto a mim no WhatsApp, plano de autoridade feito para a sua empresa e a gravação de um podcast comigo</span></li>
+          <li><b>Investimento</b><span><strong>R$ 50.000</strong>. Turma fundadora com 5 vagas: <strong>R$ 35.000</strong>, em troca de um depoimento em vídeo ao final</span></li>
+        </ul>
+        <div class="actions2"><a class="btn" href="/mentoria/#agendar">Agendar uma conversa <span aria-hidden="true">→</span></a><a class="more" href="/mentoria/">Ver a mentoria completa →</a></div>
+        <div class="note">Conversa de 30 minutos · 5 vagas na turma fundadora</div>
       </div>
       <img src="/mentoria/img/hero-palco.jpg" alt="Lito Aguiar no palco" width="2000" height="1333" loading="lazy">
     </div>
