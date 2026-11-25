@@ -254,6 +254,15 @@ a{color:inherit}
 @media (max-width:560px){.iform{grid-template-columns:1fr}}
 
 /* rodapé */
+.livro{background:#F7F7F7;padding-block:clamp(64px,9vw,112px)}
+.livro .box{display:grid;grid-template-columns:minmax(220px,.7fr) 1.3fr;gap:clamp(28px,5vw,72px);align-items:center}
+.livro figure{margin:0}.livro figure img{width:100%;height:auto;display:block}
+.livro .h{font-size:clamp(40px,5vw,68px);margin:14px 0 20px}
+.livro p{max-width:58ch;color:var(--text);margin:0 0 14px}
+.livro .cap{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+.livro .actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:26px}
+.livro .more{font-weight:700;color:var(--ink)}
+@media (max-width:860px){.livro .box{grid-template-columns:1fr}.livro figure{max-width:260px}}
 footer{background:var(--ink);color:var(--muted-d);padding-block:36px;font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:16px 28px;justify-content:space-between;align-items:center}
 footer nav{display:flex;flex-wrap:wrap;gap:8px 20px}
@@ -281,7 +290,7 @@ footer a:hover{color:var(--signal)}
   <div class="wrap">
     <div class="nav">
       <a href="/" aria-label="Lito Aguiar, página inicial"><img src="/mentoria/img/logo-lito-aguiar.png" alt="Lito Aguiar" width="148" height="30"></a>
-      <span class="navlinks" style="display:flex;gap:20px"><a class="link" href="/mentoria/">Mentoria</a><a class="link" href="/palestrante/">Palestras</a><a class="link" href="#no-fim-do-dia">No Fim do Dia</a><a class="link" href="#eventos">Eventos</a><a class="link" href="#empresas">Empresas</a><a class="link" href="/news/">Newsletter</a></span>
+      <span class="navlinks" style="display:flex;gap:20px"><a class="link" href="/mentoria/">Mentoria</a><a class="link" href="/palestrante/">Palestras</a><a class="link" href="/livro/">Livro</a><a class="link" href="#no-fim-do-dia">No Fim do Dia</a><a class="link" href="#eventos">Eventos</a><a class="link" href="#empresas">Empresas</a><a class="link" href="/news/">Newsletter</a></span>
     </div>
     <div class="hero">
       <div>
@@ -495,6 +504,24 @@ footer a:hover{color:var(--signal)}
         <span class="go">Quero saber primeiro →</span>
       </div>
     </a>
+  </div>
+</section>
+
+<section class="livro" id="livro" aria-labelledby="lv-t">
+  <div class="wrap box">
+    <figure><img src="/img/livro/smart-funny-capa.jpg" alt="Capa do livro Smart Funny: crie impacto sem criar tensão" width="430" height="650" loading="lazy"></figure>
+    <div>
+      <span class="eyebrow">Livro · coautor</span>
+      <h2 class="h" id="lv-t">Coautor do <span class="hl" style="color:#C27C0E">Smart Funny</span></h2>
+      <div class="cap">Capítulo: O Algoritmo da Leveza</div>
+      <p>Escrevi um capítulo do livro <strong>Smart Funny: crie impacto sem criar tensão</strong>, coordenado por Maryana com Y.</p>
+      <p>Conto como um exame de sono com 72 apneias por hora mudou a forma como cuido da saúde e conduzo empresas, e por que dados são o melhor ansiolítico do mundo.</p>
+      <div class="actions">
+        <a class="btn" href="https://www.amazon.com.br/dp/658321296X" target="_blank" rel="noopener">Comprar o livro <span aria-hidden="true">→</span></a>
+        <a class="btn ghost" href="https://www.amazon.com.br/dp/B0GX34GV83" target="_blank" rel="noopener">eBook Kindle</a>
+        <a class="more" href="/livro/">Ler um trecho →</a>
+      </div>
+    </div>
   </div>
 </section>
 
