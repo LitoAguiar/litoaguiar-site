@@ -3,5 +3,6 @@ Allow: /
 Disallow: /mentoria/*.php
 Disallow: /mentoria/dados/
 Disallow: /mentoria/b.html
+Disallow: /social/
 
 Sitemap: https://litoaguiar.com.br/sitemap.xml

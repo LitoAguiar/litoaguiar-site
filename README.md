@@ -8,6 +8,8 @@ Site pessoal de Lito Aguiar, publicado na Hostinger via Git (deploy automático 
 - `news/` — arquivo da newsletter Scale News (até a Nº 03 se chamava Do Dado à Decisão). `index.html` lista as edições; cada edição em `news/NN/index.html`
 - `/scale-news` — link fixo para a edição mais recente: redirect 302 no `.htaccess` da raiz. A cada edição nova, trocar o destino para `/news/NN/`
 
+- `social/` — mídias dos posts agendados no Metricool (artes aprovadas na Central), fora do índice (robots)
+
 Páginas estáticas, sem build. Toda alteração na `main` vai para o ar.
 
 ## Integrações
